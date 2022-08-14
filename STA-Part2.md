@@ -1,38 +1,3 @@
-\usepackage{titling}
-\usepackage{longtable}
-\usepackage{float}
-\usepackage{array}
-\usepackage{hyperref}
-\usepackage[none]{hyphenat}
-\usepackage{nameref}
-\usepackage[title,toc,page]{appendix}
-\usepackage{listings}
-
-\pretitle{%
-  \begin{center}
-  \LARGE
-  \includegraphics[width=10cm,height=10cm]{Logo.png}\\[\bigskipamount]
-
-}
-\posttitle{\end{center}}
-
-
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead[LO,LE]{STA 380}
-\fancyfoot[CO,CE]{Mc Combs School of Business}
-\rhead{\includegraphics[width = .085\textwidth]{logo_small.png}}
-\fancyfoot[LE,RO]{\thepage}
-\usepackage{graphicx}
-\usepackage{grffile}
-\usepackage{multirow}
-\usepackage{hhline}
-\usepackage{xcolor}
-\usepackage[normalem]{ulem}
-\useunder{\uline}{\ul}{}
-\usepackage{float}
-
-
 <!-- Actual text starts here -->
 ## Probability Practice
 
@@ -243,6 +208,9 @@ shown in the table.
 operations, to account for the fact that multiple unique songs can share
 the same title.)
 
+    ## `summarise()` has grouped output by 'performer'. You can override using the
+    ## `.groups` argument.
+
 <table>
 <colgroup>
 <col style="width: 40%" />
@@ -335,7 +303,7 @@ irrespective of how many times it had appeared. You could use a single
 set of data-wrangling steps that combines the length and unique
 commands.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-3-1.png)
 
 **The number of Hot 100 Entries from 1958 through 2021 is depicted in
 this graph. It’s interesting to observe the gradual drop in music
@@ -367,9 +335,7 @@ Notes:
     according to some other variable, you can use the fct\_reorder
     function, described in this blog post. This is optional.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
-
-![](/STA-Part2_files/figure-markdown_strict/unnamed-chunk-5-1.png, raw=true)
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
 ## Visual story telling part 1: green buildings
 
@@ -420,7 +386,9 @@ Importing the data and all the required libraries
 
     ## [1] "Median rent of green buildings :  25"
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+    ## Warning: `fun.y` is deprecated. Use `fun` instead.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-6-1.png)
 
     ## [1] "Median leasing rate of green buildings :  92.92"
 
@@ -447,7 +415,12 @@ e.class\_a buildings have higher rent than the other buildings
 Let’s plot the respective distribution to find if the hypotheses can be
 supported using the relationships
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+    ## Warning: `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-7-1.png)
 
 **Findings**:  
 \* Age has no visible relation with Rent when all buildings are
@@ -460,7 +433,16 @@ higher rent than the other buildings
 Lets check the above hypotheses for Green and Non-Green buildings
 separtely to see if there is any influence
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+    ## Warning: `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+    ## `fun.y` is deprecated. Use `fun` instead.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 **Findings**:  
 \* Older Green Buildings have the possibility of charging higher rents
 when they are renovated  
@@ -469,7 +451,7 @@ after the buildings are split into green and non-green buildings
 
 #### Step 3: Deep Diving into some of the potential variables to see the difference between rents between green and non-green buildings
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-9-1.png)
 
     ## [1] "Median rent of green buildings less than 30 years of age: 28"
 
@@ -492,10 +474,10 @@ receiving a particular amount of rent
 local markets  
 \* You can observe that more than 50% of the markets have rent less than
 $25 rent  
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
-**We can further calculate the number of local markets in which the rent
-for green building is higher than the median cluster rent as median is
-more robust to outliers**
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-10-1.png) **We
+can further calculate the number of local markets in which the rent for
+green building is higher than the median cluster rent as median is more
+robust to outliers**
 
 -   Green buildings have higher rents than the median rents in more than
     75% of the local markets and on an averge it is $4.89  
@@ -554,15 +536,15 @@ start earning profits after 7.4 years*
 
 #### Volume of Boardings by month
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-15-1.png" style="display: block; margin: auto;" />
 
 #### Volume of Alightings by month
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
 
 #### Volume of Boardings by day\_of\_week
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
 
 #### Correlation between boarding and alighting
 
@@ -572,7 +554,10 @@ start earning profits after 7.4 years*
 
 #### Comparison of mean boardings and mean alightings by month with difference of alighting and boarding included
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+    ## `summarise()` has grouped output by 'month'. You can override using the
+    ## `.groups` argument.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-19-1.png)
 
 Average number of boardings and alightings are plotted and compared for
 all 3 months. Mean number of boardings and alightings seem to be higher
@@ -584,7 +569,10 @@ because of thanksgiving
 
 #### Comparison of mean boardings and mean alightings by month for each day of a week
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+    ## `summarise()` has grouped output by 'month'. You can override using the
+    ## `.groups` argument.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-20-1.png)
 
 The pattern of average number of people boarding and alighting for each
 day of a week is same for all the months and it is observed for weekends
@@ -593,7 +581,10 @@ week days as the students will not be coming to university
 
 #### Comparison of mean boardings and mean alightings by month with temperature included
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+    ## `summarise()` has grouped output by 'month'. You can override using the
+    ## `.groups` argument.
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-21-1.png)
 
 Average boardings and Average alightings are plotted for each month with
 temperature included and it is noticed that temperature is not impacting
@@ -665,14 +656,9 @@ resaonable range.
 -   LQD with +-9%
 -   SPY with +14% and -10%
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-24-2.png" style="display: block; margin: auto;" />
-From the charts above we can say that we have the data from the past
-which captures all the Bull and Bear runs of the market , which is very
-essintial for this use case.
-
-**During all the strategies, i have considered 8000 bootstrap samples
+*During all the strategies, i have considered 8000 bootstrap samples
 from the past and plotted the 20 day returns for all the 3 strategies
-below**
+below*
 
 ### Strategy one - Even split of my assets
 
@@ -680,24 +666,24 @@ An even split of my assets would be 20% across all the ETF’s.Here, we
 assume that we re-distribute the total capital at the end of each day
 equally amongst the five ETFs.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-23-1.png)
 
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5360.6851329
+-5106.2979669
 
 ### Strategy two - Safer than even split
 
 We notice that *SPY*, *TLT* and *LQD* are the safe bets in the summary
 stats.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-26-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-24-1.png)
 
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3890.02276
+-4037.894372
 
 ### Strategy three - Aggressive strategy
 
@@ -706,11 +692,7 @@ to their volatile nature. Since we are going with aggressive strategy we
 invest more in EEMs due to the possibility of a very large return on my
 investment.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-27-1.png" style="display: block; margin: auto;" />
-
-    ##            used  (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
-    ## Ncells  4410511 235.6    7512791 401.3         NA  7512791 401.3
-    ## Vcells 11815568  90.2   19430907 148.3      16384 19430907 148.3
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-25-1.png)
 
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
@@ -723,13 +705,13 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5360.6851329. We would end up with around USD 1.0046411^{5} on
-average with a possibility to even reach USD 1.1573457^{5}*
+of $-5106.2979669. We would end up with around USD 1.0051391^{5} on
+average with a possibility to even reach USD 1.1614356^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3890.02276. The strategy to play safer shows in the results. On
-average we end up with around USD 1.0029497^{5} and the max we can
-possibly make is USD 1.1195083^{5}.*
+$-4037.894372. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0026236^{5} and the max we can
+possibly make is USD 1.0965571^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
@@ -867,7 +849,7 @@ lot and end up with just USD 6.9156711^{4}.*
 
 -   Now simulate many different possible scenarios
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-3.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-34-1.png)![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-34-2.png)![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-34-3.png)
 
     ## [1] "Value at risk for even split :  7970.7"
 
@@ -993,7 +975,7 @@ lot and end up with just USD 6.9156711^{4}.*
     ## sulphates            -0.294  0.192 -0.070
     ## alcohol              -0.106 -0.465 -0.261
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-41-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-39-1.png)
 
     ##        cluster
     ## color    red white
@@ -1031,7 +1013,7 @@ lot and end up with just USD 6.9156711^{4}.*
     ##            8   2  30   0  96  21  14  30
     ##            9   0   0   0   4   1   0   0
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-42-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-40-1.png)
 
 -   The confusion matrix shows that k-means clustering was unable to
     distinguish between different qualities of wine. For example, each
@@ -1105,7 +1087,7 @@ identify the profiles of those segments
 -   We have about 7882 users with 36 areas of interest and one column
     for uncategorised.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-44-2.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-42-1.png)![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-42-2.png)
 **Findings:**
 
 1.  The most tweets fall into the chatter category which doesnt tell us
@@ -1117,7 +1099,13 @@ identify the profiles of those segments
 
 2.  It is very clear that the tweet\_count per variable is almost 8k
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-45-1.png" style="display: block; margin: auto;" />
+<!-- -->
+
+    #Removing the labels from the data
+    cormat <- cor(social_marketing_data[c(2:37)])
+    ggcorrplot(cormat,hc.order = TRUE,lab = TRUE)
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-43-1.png)
 
 -   Shopping and photo-sharing are positively correlated  
 -   College\_uni and online\_gaming stands out with a strong positive
@@ -1131,15 +1119,11 @@ if the same points appear after profiling the clusters
 
 #### PCA
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-48-1.png" style="display: block; margin: auto;" />
-
-    cumsum(pca_var1)[11]
-
-    ## [1] 0.6367755
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-46-1.png)
 
     fviz_eig(pca_sm)
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-49-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-47-1.png)
 
     get_eigenvalue(pca_sm)
 
@@ -1188,18 +1172,18 @@ if the same points appear after profiling the clusters
     ##  [1] 222792.4 200567.3 186133.5 174523.2 163762.5 153712.5 146485.9 139248.8
     ##  [9] 132583.4 127235.8 122683.4 119481.2 116298.5 113253.2 111023.3
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-52-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-50-1.png)
 
 -   We can see that there is a clear bend at 6 on the graph for elbow,
     so lets go with 6 clusters for K means
 
 **Cluster visualization**
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-1.png" style="display: block; margin: auto;" />
-The clusters look separated, as well as we can see many common points
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-53-1.png) The
+clusters look separated, as well as we can see many common points
 between clusters.Let’s identify the characteristics of the clusters.
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-6.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-6.png" style="display: block; margin: auto;" />
 
 **Results**
 
@@ -1257,6 +1241,14 @@ corpus and then to a Document-Term matrix. This includes removing
 stopword, case conversion, removing special characters in end/begining,
 basically cleaning the text so that it can be used in for analysis.
 
+    ## Warning: 'dfm.corpus()' is deprecated. Use 'tokens()' first.
+
+    ## Warning: '...' should not be used for tokens() arguments; use 'tokens()' first.
+
+    ## Warning: remove_symbol argument is not used.
+
+    ## Warning: 'remove' is deprecated; use dfm_remove() instead
+
     ##    feature frequency rank docfreq group
     ## 1     said     19856    1    2482   all
     ## 2  percent      5211    2    1501   all
@@ -1289,7 +1281,7 @@ author prediction!
 There are numerous features to choose from. Let’s utilize PCA to extract
 the most significant variables from the 782 unique phrases stated above!
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-60-1.png)
 
 According to an overview of the variance described, 350 or so primary
 components account for roughly 50% of the total variance.
@@ -1317,7 +1309,25 @@ test set!
     in the range of 1-15.
 2.  For the distance metric, we will use the Manhattan distance
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-65-1.png" style="display: block; margin: auto;" />
+<!-- -->
+
+    # a vector to store the accuracies of the knn model
+    accuracies <- NULL
+
+    for (i in 1:15){
+      knn_model <- kknn(training_class_labels ~ .,
+                        X_train,
+                        X_test_pc,
+                        distance = 1,
+                        k= i,
+                        kernel = 'rectangular')
+      
+      accuracies <- c(accuracies,sum(knn_model$fitted.values == testting_class_labels)/length(testting_class_labels))
+    }
+
+    plot(c(1:15), accuracies, main = "KNN accuracy vs K", xlab = "K-Values", ylab = "Accuracy Score", lty = 1)
+
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-63-1.png)
 
 The plot shows that using 4 nearest neighbors, we get an overall
 accuracy of ~35%.
@@ -1405,6 +1415,28 @@ upon the accuracy of the random Forest model. We believe so because by
 design XGBoost tries to capture the remaining pattern in the residuals
 of each previous model.
 
+    # XGBoost model
+
+    train_data_xgboost_matrix <- data.matrix(X_train[,1:350])
+    test_data_xgboost_matrix <- data.matrix(X_test_pc)
+
+    dtrain <- xgb.DMatrix(data = train_data_xgboost_matrix, label = as.numeric(X_train[,351]) - 1)
+    dtest <- xgb.DMatrix(data = test_data_xgboost_matrix, label = as.numeric(as.factor(testting_class_labels)) - 1)
+
+    boost_model <- xgboost(data = dtrain, # the data   
+                           nround = 100, # max number of boosting iterations
+                           objective = "multi:softmax",
+                           eta = 0.15,
+                           num_class = 50,
+                           max_depth = 7,
+                           eval_metric = "mlogloss",
+                           verbose = 0)
+
+    author_predict <- predict(boost_model, dtest)
+    accuracy <- mean(author_predict == (as.numeric(as.factor(testting_class_labels)) - 1))*100
+
+    print(paste0("Accuracy is ", accuracy))
+
     ## [1] "Accuracy is 53.84"
 
 So, we get 53.84% accuracy with XGboost. This is not better than the
@@ -1463,7 +1495,7 @@ there in the training data
     ##  Class :character  
     ##  Mode  :character
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-76-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-76-2.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-74-1.png)![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-74-2.png)
 We transform the data into a “transactions” class before applying the
 apriori algorithm in association rule mining.
 
@@ -1502,17 +1534,17 @@ the most frequently bought items.
     ## [5] 1.513634 736  
     ## [6] 1.513634 736
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-78-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-76-1.png)
 
 -   support &gt; 0.02, confidence &gt; 0.2 and length &lt;= 2
 
 -   This item set contains 72 rules and includes a lot more items.
     However, whole milk still seems to be a common occurence.
-    <img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-80-1.png" style="display: block; margin: auto;" />
+    ![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-78-1.png)
 
 -   support &gt; 0.0015, confidence &gt; 0.8 and length &lt;= 2
 
-<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-82-1.png" style="display: block; margin: auto;" />
+![](STA-Part2_files/figure-markdown_strict/unnamed-chunk-80-1.png)
 
 **Conclusion**
 
@@ -1528,40 +1560,26 @@ are:
 3.  Whole milk is the most common item purchased by customers
 
 <!-- <!-- ### Approach 2 -->
-
-–&gt; <!-- # ```{r,echo=FALSE,include=FALSE} -->
+<!-- # ```{r,echo=FALSE,include=FALSE} -->
 <!-- # # consider only unique items in each basket -->
-<!-- # item_list <- lapply(item_list, unique) --> <!-- #  -->
+<!-- # item_list <- lapply(item_list, unique) -->
+<!-- #  -->
 <!-- # # convert to the transactions type -->
 <!-- # item_transactions <- as(item_list, "transactions") -->
-<!-- #  --> <!-- # # apply the apriori -->
+<!-- #  -->
+<!-- # # apply the apriori -->
 <!-- # groceryrules <- apriori(item_transactions, -->
 <!-- #                         parameter=list(support = .001, -->
 <!-- #                                        confidence = .5)) -->
-<!-- # head(groceryrules, n = 10, by ="lift") --> <!-- #  -->
+<!-- # head(groceryrules, n = 10, by ="lift") -->
+<!-- #  -->
 <!-- # plot(head(groceryrules, n = 10, by ="lift"), method = "graph",  -->
-<!-- #      main = "Top 10 Association Rules") --> <!-- # ``` -->
-
+<!-- #      main = "Top 10 Association Rules") -->
+<!-- # ``` -->
 <!-- <!-- **Conclusion** -->
-
-–&gt;
-
 <!-- <!-- A study of the associations shows us the following  -->
-
-–&gt;
-
 <!-- <!-- 1. People purchase soda, popcorn and other salty snacks together. -->
-
-–&gt;
-
 <!-- <!-- 2. Cheese, ham, white bread and eggs usually sell together. -->
-
-–&gt;
-
 <!-- <!-- 3. Sugar, baking powder and flour sell together, these are usually -->
-
-–&gt; <!-- <!-- baking items. --> –&gt;
-
+<!-- <!-- baking items. -->
 <!-- <!-- 4. Cheese, curd, whipped cream and yogurt sell together! -->
-
-–&gt;
