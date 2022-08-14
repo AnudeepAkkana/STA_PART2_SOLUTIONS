@@ -200,12 +200,12 @@ commands.
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
-**The number of Hot 100 Entries from 1958 through 2021 is depicted in
+*The number of Hot 100 Entries from 1958 through 2021 is depicted in
 this graph. It’s interesting to observe the gradual drop in music
 diversity from 1970 to an all-time low in the early 2000s, and we can
 clearly see how iTunes and streaming began to have an impact starting
 around 2005. Maybe a consolidation of genres in the zeitgeist might be
-blamed for the reduction of musical diversity in the 20th century.**
+blamed for the reduction of musical diversity in the 20th century.*
 
 ###Part C Let’s define a “ten-week hit” as a single song that appeared
 on the Billboard Top 100 for at least ten weeks. There are 19 artists in
@@ -213,22 +213,6 @@ U.S. musical history since 1958 who have had at least 30 songs that were
 “ten-week hits.” Make a bar plot for these 19 artists, showing how many
 ten-week hits each one had in their musical career. Give the plot an
 informative caption in which you explain what is shown.
-
-Notes:
-
--   You might find this easier to accomplish in two distinct sets of
-    data wrangling steps.
-
--   Make sure that the individuals names of the artists are readable in
-    your plot, and that they’re not all jumbled together. If you find
-    that your plot isn’t readable with vertical bars, you can add a
-    coord_flip() layer to your plot to make the bars (and labels) run
-    horizontally instead.
-
--   By default a bar plot will order the artists in alphabetical order.
-    This is acceptable to turn in. But if you’d like to order them
-    according to some other variable, you can use the fct_reorder
-    function, described in this blog post. This is optional.
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
 
@@ -550,7 +534,7 @@ equally amongst the five ETFs.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5115.1482857
+-5073.5355408
 
 ### Strategy two - Safer than even split
 
@@ -562,7 +546,7 @@ stats.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3986.6138944
+-3813.9976231
 
 ### Strategy three - Aggressive strategy
 
@@ -584,13 +568,13 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5115.1482857. We would end up with around USD 1.0047469^{5} on
-average with a possibility to even reach USD 1.1658581^{5}*
+of $-5073.5355408. We would end up with around USD 1.0048808^{5} on
+average with a possibility to even reach USD 1.1464515^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3986.6138944. The strategy to play safer shows in the results. On
-average we end up with around USD 1.0030521^{5} and the max we can
-possibly make is USD 1.1020809^{5}.*
+$-3813.9976231. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0033349^{5} and the max we can
+possibly make is USD 1.1006796^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
@@ -1241,14 +1225,14 @@ The accuracy with K Nearest Neighbors isnt good! We don’t want to do
 worse than a coin toss! Let’s try out the Random Forest models and check
 if we do any better! <br>
 
-1.  We will use a random forest model with 5000 trees with the default
+1.  We will use a random forest model with 1000 trees with the default
     value of variables to pick for each tree!
 
 <!-- -->
 
-    ## [1] "Accuracy is 59.12"
+    ## [1] "Accuracy is 59.32"
 
-The random Forest models give us 59.12% accuracy. This is much better
+The random Forest models give us 59.32% accuracy. This is much better
 than the knn model with 35% accuracy.
 
 -   Let us look at which author attribution did we get right and at what
@@ -1263,7 +1247,7 @@ than the knn model with 35% accuracy.
     ## 2 LynnleyBrowning     1   
     ## 3 KarlPenhaul         0.96
     ## 4 RobinSidel          0.9 
-    ## 5 AaronPressman       0.84
+    ## 5 MatthewBunce        0.88
 
 -   Let us look at which author attribution did we not get right and at
     what accuracy did we do it.
@@ -1273,11 +1257,11 @@ than the knn model with 35% accuracy.
     ## # A tibble: 5 × 2
     ##   Actual_Author    Accuracy
     ##   <fct>               <dbl>
-    ## 1 TanEeLyn             0.06
-    ## 2 EdnaFernandes        0.12
-    ## 3 DarrenSchuettler     0.16
-    ## 4 ScottHillis          0.16
-    ## 5 BenjaminKangLim      0.18
+    ## 1 TanEeLyn             0.08
+    ## 2 DarrenSchuettler     0.16
+    ## 3 EdnaFernandes        0.16
+    ## 4 DavidLawder          0.18
+    ## 5 ScottHillis          0.18
 
 We see that accuricies are better than the knn model for both rightly
 redictd and wrongly predicted data ! This is a good candidate for a
@@ -1385,8 +1369,6 @@ The summary of the dataset reveals the following:
 
 3.  More than half of the transactions have 4 or lesser items per basket
 
-#### Approach 1
-
 -   support \> 0.05, confidence \> 0.1 and length \<= 2 using the
     ‘apriori’ algorithm
 
@@ -1437,7 +1419,7 @@ are:
 3.  Whole milk is the most common item purchased by customers
 
 <!-- <!-- ### Approach 2 -->
-<!-- # ```{r,warning=FALSE,fig.align='center',echo=FALSE,include=FALSE} -->
+<!-- # ```{r,warning=FALSE,fig.align='center',echo=FALSE,include=FALSE, eval=FALSE} -->
 <!-- # # consider only unique items in each basket -->
 <!-- # item_list <- lapply(item_list, unique) -->
 <!-- #  -->
