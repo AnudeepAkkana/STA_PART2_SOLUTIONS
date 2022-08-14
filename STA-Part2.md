@@ -369,6 +369,8 @@ Notes:
 
 <img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
 
+![](/STA-Part2_files/figure-markdown_strict/unnamed-chunk-5-1.png, raw=true)
+
 ## Visual story telling part 1: green buildings
 
 The EDA has been carried out in multiple phases to arrive at a final
