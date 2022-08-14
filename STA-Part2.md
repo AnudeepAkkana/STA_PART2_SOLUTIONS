@@ -1,0 +1,1565 @@
+\usepackage{titling}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage[none]{hyphenat}
+\usepackage{nameref}
+\usepackage[title,toc,page]{appendix}
+\usepackage{listings}
+
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \includegraphics[width=10cm,height=10cm]{Logo.png}\\[\bigskipamount]
+
+}
+\posttitle{\end{center}}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LO,LE]{STA 380}
+\fancyfoot[CO,CE]{Mc Combs School of Business}
+\rhead{\includegraphics[width = .085\textwidth]{logo_small.png}}
+\fancyfoot[LE,RO]{\thepage}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{float}
+
+
+<!-- Actual text starts here -->
+## Probability Practice
+
+### Part A.
+
+Visitors to your website are asked to answer a single survey question
+before they get access to the content on the page. Among all of the
+users, there are two categories: Random Clicker (RC), and Truthful
+Clicker (TC). There are two possible answers to the survey: yes and no.
+Random clickers would click either one with equal probability. You are
+also giving the information that the expected fraction of random
+clickers is 0.3. After a trial period, you get the following survey
+results: 65% said Yes and 35% said No.  What fraction of people who are
+truthful clickers answered yes? Hint: use the rule of total probability.
+
+#### Answer:
+
+Let us list down all the listed porbabilities to get started with the
+formulation of the problem
+
+-   Total probability of an yes *P*(*Y*) = 0.65
+-   Probability of an yes given the click is by a random clicker
+    *P*(*Y*/*R**C*) = 0.5
+-   Probability of a clicker being a random clicker *P*(*R**C*) = 0.3
+-   Probability of a clicker being a truthful clicker *P*(*T**C*) = 0.7
+
+Let’s consider the total probability equation of yes to get started
+with: Total probability *P*(*Y*) =  
+Joint probability of Yes and Random Clickers *P*(*Y*,*R**C*) + Joint
+probability of Yes and True Clickers *P*(*Y*,*T**C*)  
+i.e *P*(*Y*) = *P*(*Y*,*R**C*) + *P*(*Y*,*T**C*)  
+=&gt;
+*P*(*Y*) = *P*(*Y*/*R**C*) \* *P*(*R**C*) + *P*(*Y*/*T**C*) \* *P*(*T**C*)  
+=&gt;
+*P*(*Y*/*T**C*) \* *P*(*T**C*) = *P*(*Y*) − *P*(*Y*/*R**C*) \* *P*(*R**C*)  
+=&gt;
+*P*(*Y*/*T**C*) = (*P*(*Y*)−*P*(*Y*/*R**C*)\**P*(*R**C*))/*P*(*T**C*)  
+Substituting the given values  
+$P(Y/TC) = (0.65 - (0.5\*0.3))/0.7
+
+**Another easier way would be to assume the number of participants in
+the survey to be 100 and assuming ‘p’ proportion of TCs say yes**
+
+=&gt; *P*(*R**C*) = 30 =&gt; *P*(*T**C*) = 70 =&gt; *P*(*Y*/*T**C*) =
+(70 \* p)  
+=&gt; *P*(*N*/*T**C*) = (70 *(1-p)) =&gt; *P*(*T*/*R**C*) = (30*0.5)
+=&gt; *P*(*N*/*R**C*) = (30\*0.5)
+
+Which means that out of the random callers, 15 would say ‘Yes’, 15 would
+say ‘No’. We need to evaluate how many of the True Clickers said ‘Yes’.
+
+Basically the total number of people who said yes is - 15 + (70\*p) out
+of a total of 100 people
+
+(15 + (70 \*p)=65
+
+p=5/7
+
+**Fraction of people who are truthful clickers answered yes = 5/7**
+
+### Part B.
+
+Imagine a medical test for a disease with the following two attributes:
+
+-   The sensitivity is about 0.993. That is, if someone has the disease,
+    there is a probability of 0.993 that they will test positive.
+
+-   The specificity is about 0.9999. This means that if someone doesn’t
+    have the disease, there is probability of 0.9999 that they will test
+    negative.
+
+-   In the general population, incidence of the disease is reasonably
+    rare: about 0.0025% of all people have it (or 0.000025 as a decimal
+    probability).
+
+Suppose someone tests positive. What is the probability that they have
+the disease?
+
+#### Answer:
+
+Let’s assume a population of 1 billion to continue with the problem
+
+-   Probability of positive test result given the presence of disease
+    *P*(*P*/*D*) = 0.993
+-   Probability of negative result given there is no disease
+    *P*(*N*/*N**o**D**i**s*) = 0.9999
+-   Total probability of having a disease *P*(*D*) = 0.000025
+
+The following confusion matrix is used for calculating the TP,TN,FP and
+FN
+
+<table>
+<thead>
+<tr class="header">
+<th>Confusion matrix</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Test Result</td>
+<td>Disease</td>
+<td>No Disease</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Positive</td>
+<td>24,825</td>
+<td>99,997</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Negative</td>
+<td>175</td>
+<td>999,875,003</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+-   Using the above calculations, we can see that there is a *0.1988*
+    probability of having a disease if the test result is positive
+
+-   From this, we can infer that only ~20 out of 100 people who are
+    tested positive have the disease
+
+\*This is not very conclusive of having the disease, therefore most
+people who test positive would have to take the test multiple times
+before being sure.
+
+**Suppose, if this is the only test available for screening,there can be
+an interesting procedure that can be followed to reduce the false
+positives**
+
+-   Consider the people who were tested positive for the first time and
+    perform the test again given that the specificty and the sensitivity
+    of the test remains constant
+
+-   One notable change is that the total probability of having a disease
+    will change in this scenario
+
+-   Probability of positive test result given the presence of disease
+    *P*(*P*/*D*) = 0.993
+
+-   Probability of negative result given there is no disease
+    *P*(*N*/*N**o**D**i**s*) = 0.9999
+
+-   Total probability of having a disease  
+    *P*(*D*) = 0.1988
+
+Following is the confusion matrix for the second test
+
+<table>
+<thead>
+<tr class="header">
+<th>Confusion matrix</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Test Result</td>
+<td>Disease</td>
+<td>No Disease</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Postive</td>
+<td>24,653.90</td>
+<td>10.00</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Negative</td>
+<td>173.79</td>
+<td>99,987.31</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+\*\*If the test result is positive even in the second test, then we can
+sure that there is a 0.9996 i.e (99.96% sure ) probability that the
+person is having a disease.
+
+## Wrangling the Billboard Top 100
+
+### Part A
+
+Make a table of the top 10 most popular songs since 1958, as measured by
+the total number of weeks that a song spent on the Billboard Top 100.
+Note that these data end in week 22 of 2021, so the most popular songs
+of 2021 will not have up-to-the-minute data; please send our apologies
+to The Weeknd.
+
+Your table should have 10 rows and 3 columns: performer, song, and
+count, where count represents the number of weeks that song appeared in
+the Billboard Top 100. Make sure the entries are sorted in descending
+order of the count variable, so that the more popular songs appear at
+the top of the table. Give your table a short caption describing what is
+shown in the table.
+
+(Note: you’ll want to use both performer and song in any group\_by
+operations, to account for the fact that multiple unique songs can share
+the same title.)
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 34%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Performers</th>
+<th style="text-align: left;">Songs</th>
+<th style="text-align: right;">Total Weeks on Billboard</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Imagine Dragons</td>
+<td style="text-align: left;">Radioactive</td>
+<td style="text-align: right;">87</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AWOLNATION</td>
+<td style="text-align: left;">Sail</td>
+<td style="text-align: right;">79</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jason Mraz</td>
+<td style="text-align: left;">I’m Yours</td>
+<td style="text-align: right;">76</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">The Weeknd</td>
+<td style="text-align: left;">Blinding Lights</td>
+<td style="text-align: right;">76</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LeAnn Rimes</td>
+<td style="text-align: left;">How Do I Live</td>
+<td style="text-align: right;">69</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LMFAO Featuring Lauren Bennett &amp;
+GoonRock</td>
+<td style="text-align: left;">Party Rock Anthem</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OneRepublic</td>
+<td style="text-align: left;">Counting Stars</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adele</td>
+<td style="text-align: left;">Rolling In The Deep</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Jewel</td>
+<td style="text-align: left;">Foolish Games/You Were Meant For Me</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carrie Underwood</td>
+<td style="text-align: left;">Before He Cheats</td>
+<td style="text-align: right;">64</td>
+</tr>
+</tbody>
+</table>
+
+\###Part B Is the “musical diversity” of the Billboard Top 100 changing
+over time? Let’s find out. We’ll measure the musical diversity of given
+year as the number of unique songs that appeared in the Billboard Top
+100 that year. Make a line graph that plots this measure of musical
+diversity over the years. The x axis should show the year, while the y
+axis should show the number of unique songs appearing at any position on
+the Billboard Top 100 chart in any week that year. For this part, please
+filter the data set so that it excludes the years 1958 and 2021, since
+we do not have complete data on either of those years. Give the figure
+an informative caption in which you explain what is shown in the figure
+and comment on any interesting trends you see.
+
+There are number of ways to accomplish the data wrangling here. We offer
+you two hints on two possibilities:
+
+You could use two distinct sets of data-wrangling steps. The first set
+of steps would get you a table that counts the number of times that a
+given song appears on the Top 100 in a given year. The second set of
+steps operate on the result of the first set of steps; it would count
+the number of unique songs that appeared on the Top 100 in each year,
+irrespective of how many times it had appeared. You could use a single
+set of data-wrangling steps that combines the length and unique
+commands.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+
+**The number of Hot 100 Entries from 1958 through 2021 is depicted in
+this graph. It’s interesting to observe the gradual drop in music
+diversity from 1970 to an all-time low in the early 2000s, and we can
+clearly see how iTunes and streaming began to have an impact starting
+around 2005. Maybe a consolidation of genres in the zeitgeist might be
+blamed for the reduction of musical diversity in the 20th century.**
+
+\###Part C Let’s define a “ten-week hit” as a single song that appeared
+on the Billboard Top 100 for at least ten weeks. There are 19 artists in
+U.S. musical history since 1958 who have had at least 30 songs that were
+“ten-week hits.” Make a bar plot for these 19 artists, showing how many
+ten-week hits each one had in their musical career. Give the plot an
+informative caption in which you explain what is shown.
+
+Notes:
+
+-   You might find this easier to accomplish in two distinct sets of
+    data wrangling steps.
+
+-   Make sure that the individuals names of the artists are readable in
+    your plot, and that they’re not all jumbled together. If you find
+    that your plot isn’t readable with vertical bars, you can add a
+    coord\_flip() layer to your plot to make the bars (and labels) run
+    horizontally instead.
+
+-   By default a bar plot will order the artists in alphabetical order.
+    This is acceptable to turn in. But if you’d like to order them
+    according to some other variable, you can use the fct\_reorder
+    function, described in this blog post. This is optional.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-5-1.png" style="display: block; margin: auto;" />
+
+## Visual story telling part 1: green buildings
+
+The EDA has been carried out in multiple phases to arrive at a final
+conclusion about building a Green building or Non-green buildings
+
+-   Step 1: Perform exploratory data analysis on **all buildings** in
+    the dataset to find any insights at a macro level
+
+-   Step 2: Perform EDA by **splitting the buildings in to Green and
+    Non-Green**
+
+-   Step 3: Perform EDA by considering **local markets(clusters)** and
+    derive insights
+
+Importing the data and all the required libraries
+
+#### Step 1: Analysis on all buildings
+
+1.Obtain a brief idea about the columns in the dataset
+
+    ## 'data.frame':    7894 obs. of  23 variables:
+    ##  $ CS_PropertyID    : int  379105 122151 379839 94614 379285 94765 236739 234578 42087 233989 ...
+    ##  $ cluster          : int  1 1 1 1 1 1 6 6 6 6 ...
+    ##  $ size             : int  260300 67861 164848 93372 174307 231633 210038 225895 912011 518578 ...
+    ##  $ empl_gr          : num  2.22 2.22 2.22 2.22 2.22 2.22 4.01 4.01 4.01 4.01 ...
+    ##  $ Rent             : num  38.6 28.6 33.3 35 40.7 ...
+    ##  $ leasing_rate     : num  91.4 87.1 88.9 97 96.6 ...
+    ##  $ stories          : int  14 5 13 13 16 14 11 15 31 21 ...
+    ##  $ age              : int  16 27 36 46 5 20 38 24 34 36 ...
+    ##  $ renovated        : int  0 0 1 1 0 0 0 0 0 1 ...
+    ##  $ class_a          : int  1 0 0 0 1 1 0 1 1 1 ...
+    ##  $ class_b          : int  0 1 1 1 0 0 1 0 0 0 ...
+    ##  $ LEED             : int  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ Energystar       : int  1 0 0 0 0 0 1 0 0 0 ...
+    ##  $ green_rating     : int  1 0 0 0 0 0 1 0 0 0 ...
+    ##  $ net              : int  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ amenities        : int  1 1 1 0 1 1 1 1 1 1 ...
+    ##  $ cd_total_07      : int  4988 4988 4988 4988 4988 4988 2746 2746 2746 2746 ...
+    ##  $ hd_total07       : int  58 58 58 58 58 58 1670 1670 1670 1670 ...
+    ##  $ total_dd_07      : int  5046 5046 5046 5046 5046 5046 4416 4416 4416 4416 ...
+    ##  $ Precipitation    : num  42.6 42.6 42.6 42.6 42.6 ...
+    ##  $ Gas_Costs        : num  0.0137 0.0137 0.0137 0.0137 0.0137 ...
+    ##  $ Electricity_Costs: num  0.029 0.029 0.029 0.029 0.029 ...
+    ##  $ cluster_rent     : num  36.8 36.8 36.8 36.8 36.8 ...
+
+    ## [1] "Median rent of green buildings :  27.6"
+
+    ## [1] "Median rent of green buildings :  25"
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
+
+    ## [1] "Median leasing rate of green buildings :  92.92"
+
+    ## [1] "Median leasing rate of non green buildings :  89.17"
+
+-   Green buildings have a higher occupancy rate when compared to
+    non-green buildings  
+-   As the stats guru, pointed out the median of green buildings($27.6)
+    is higher than the median of non-green buildings($25). But he did
+    not consider the effect of confouding variables while performing the
+    analysis. In teh next section, we will check or the influence of
+    confounding vairables on the Rent of green and non-green buildings
+
+2.We will create some hypotheses using which we will steer through the
+data to understand if the data agrees with the respective hypotheses  
+a.Less leasing\_rate might be a proxy for less demand for commercial
+real-estate  
+b.Rent decreases with age for buildings  
+c.Renovated buildings with age &gt;30 years get higher rent than
+buidings with age &lt; 30 without renovation  
+d.Buidings with amenities have higher rents than the other buildings
+e.class\_a buildings have higher rent than the other buildings
+
+Let’s plot the respective distribution to find if the hypotheses can be
+supported using the relationships
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
+
+**Findings**:  
+\* Age has no visible relation with Rent when all buildings are
+considered  
+\* Buildings with Amenities and class\_a quality material have slightly
+higher rent than the other buildings
+
+#### Step 2: Comparison of different variables for Green and Non-Green buildings
+
+Lets check the above hypotheses for Green and Non-Green buildings
+separtely to see if there is any influence
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+**Findings**:  
+\* Older Green Buildings have the possibility of charging higher rents
+when they are renovated  
+\* There are no variables that affect the distribution of rent even
+after the buildings are split into green and non-green buildings
+
+#### Step 3: Deep Diving into some of the potential variables to see the difference between rents between green and non-green buildings
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+
+    ## [1] "Median rent of green buildings less than 30 years of age: 28"
+
+    ## [1] "Median rent of non - green buildings less than 30 years of age: 27"
+
+**Findings:**  
+\* Age of the building does not affect the rent of the buildings as the
+green buildings have consistently higher rents across ages
+
+-   After exploring multiple variables, it is clear that there is no one
+    variable that affects the rent and clearly people are willing to pay
+    more rent based on the green perception of the building although
+    there is no way to quantify that experience
+
+#### Step 4: As it is evident that people are willing to pay more for the green buildings,lets come up with an estimate for the returns on building a green building
+
+1.Lets consider a local market(cluster) to check the probability of
+receiving a particular amount of rent  
+\* Let us check the distribution of cluster rents to understand the
+local markets  
+\* You can observe that more than 50% of the markets have rent less than
+$25 rent  
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+**We can further calculate the number of local markets in which the rent
+for green building is higher than the median cluster rent as median is
+more robust to outliers**
+
+-   Green buildings have higher rents than the median rents in more than
+    75% of the local markets and on an averge it is $4.89  
+-   In about 25% of the local markets, green buildings have lesser rent
+    than the median rents and the value is $3 on an average  
+-   With these observations,we can conclude that there is more than 75%
+    chance that you will earn higher rents than the average in the local
+    markets with a value more than $4.89
+
+2.Estimate for calculating the returns on building a green building  
+\* If we consider the mean of the differences between green buildings
+and the median local market rents, we see that green buildings get ~$3
+more than the non-green builings
+
+*Adjusting the estimates of the stats guru, by 0.4 , we can see that an
+extra $750,000 revenue can be earned by building a green building.*
+
+*Based on the extra revenue, we can recuperate the costs in 6.66 years
+and even with 90% occupancy as is evident from data, the builder can
+start earning profits after 7.4 years*
+
+\##Visual story telling part 2: Capital Metro data
+
+    ##   timestamp    boarding   alighting day_of_week temperature hour_of_day 
+    ##           0           0           0           0           0           0 
+    ##       month     weekend 
+    ##           0           0
+
+    ##              timestamp boarding alighting day_of_week temperature hour_of_day
+    ## 1  2018-09-01 06:00:00        0         1         Sat       74.82           6
+    ## 2  2018-09-01 06:15:00        2         1         Sat       74.82           6
+    ## 3  2018-09-01 06:30:00        3         4         Sat       74.82           6
+    ## 4  2018-09-01 06:45:00        3         4         Sat       74.82           6
+    ## 5  2018-09-01 07:00:00        2         4         Sat       74.39           7
+    ## 6  2018-09-01 07:15:00        4         4         Sat       74.39           7
+    ## 7  2018-09-01 07:30:00        3        12         Sat       74.39           7
+    ## 8  2018-09-01 07:45:00        8         4         Sat       74.39           7
+    ## 9  2018-09-01 08:00:00        4        15         Sat       75.72           8
+    ## 10 2018-09-01 08:15:00        7        10         Sat       75.72           8
+    ##    month weekend net_outflow
+    ## 1    Sep weekend          -1
+    ## 2    Sep weekend           1
+    ## 3    Sep weekend          -1
+    ## 4    Sep weekend          -1
+    ## 5    Sep weekend          -2
+    ## 6    Sep weekend           0
+    ## 7    Sep weekend          -9
+    ## 8    Sep weekend           4
+    ## 9    Sep weekend         -11
+    ## 10   Sep weekend          -3
+
+    ## [1] "timestamp"   "boarding"    "alighting"   "day_of_week" "temperature"
+    ## [6] "hour_of_day" "month"       "weekend"     "net_outflow"
+
+    ## [1] 5824    9
+
+#### Volume of Boardings by month
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-16-1.png" style="display: block; margin: auto;" />
+
+#### Volume of Alightings by month
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-17-1.png" style="display: block; margin: auto;" />
+
+#### Volume of Boardings by day\_of\_week
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-18-1.png" style="display: block; margin: auto;" />
+
+#### Correlation between boarding and alighting
+
+    ## [1] 0.120225
+
+#### Analysis
+
+#### Comparison of mean boardings and mean alightings by month with difference of alighting and boarding included
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+
+Average number of boardings and alightings are plotted and compared for
+all 3 months. Mean number of boardings and alightings seem to be higher
+for October month followed by September and November, the reason being
+UT students will start coming to classes in September and it takes time
+for them to get to know about Metro , peak goes up in October and
+finally intensity of boardings and alightings comes down in November
+because of thanksgiving
+
+#### Comparison of mean boardings and mean alightings by month for each day of a week
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
+
+The pattern of average number of people boarding and alighting for each
+day of a week is same for all the months and it is observed for weekends
+that the intensity of boardings and alightings is less when compared to
+week days as the students will not be coming to university
+
+#### Comparison of mean boardings and mean alightings by month with temperature included
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-22-1.png" style="display: block; margin: auto;" />
+
+Average boardings and Average alightings are plotted for each month with
+temperature included and it is noticed that temperature is not impacting
+the boardings and alightings
+
+## Portfolio Modelling
+
+**I chose the following ETF’s trying to diversiy my portfolio :**
+
+-   SPY- SPDR S&P 500 ETF Trust, SPY is one of the largest and most
+    heavily-traded ETFs in the world, offering exposure to one of the
+    most well known equity benchmarks. While SPY certainly may have
+    appeal to investors seeking to build a long-term portfolio and
+    include large cap U.S. stocks, this fund has become extremely
+    popular with more active traders as a way to toggle between risky
+    and safe assets.
+
+-   TLT - iShares 20+ Year Treasury Bond ETF , This ETF is one of the
+    most popular options for investors seeking to establish exposure to
+    long-dated Treasuries, an asset class that is light on credit risk
+    but may offer attractive yields thanks to an extended duration and
+    therefore material interest rate risk.
+
+-   LQD - iShares iBoxx $ Investment Grade Corporate Bond ETF,This ETF
+    is the most popular option for investors looking to gain exposure to
+    investment grade corporate bonds, making it a useful tool for those
+    looking to access a corner of the bond market that should be a core
+    component of any long-term, buy-and-hold portfolio. LQD is probably
+    of limited use for short term traders, who will prefer to utilize
+    more extreme ends of the risk spectrum to capitalize off of short
+    term movements in asset prices and risk tolerance.
+
+-   EEM- iShares MSCI Emerging Markets ETF, EEM is one of the most
+    popular ETFs in the world, and is one of the oldest products on the
+    market offering exposure to stock markets of emerging economies.
+
+-   VNQ-Vanguard Real Estate ETF,The Vanguard Real Estate Trust (VNQ)
+    offers broad exposure to U.S. equity REITs, alongside a small
+    allocation to specialized REITs and real estate firms.
+
+<!-- -->
+
+    ## [1] "SPY" "TLT" "LQD" "EEM" "VNQ"
+
+    ##    ClCl.SPYa            ClCl.TLTa            ClCl.LQDa         
+    ##  Min.   :-0.1094237   Min.   :-6.668e-02   Min.   :-5.003e-02  
+    ##  1st Qu.:-0.0033220   1st Qu.:-5.051e-03   1st Qu.:-1.977e-03  
+    ##  Median : 0.0007051   Median : 2.716e-04   Median : 4.170e-04  
+    ##  Mean   : 0.0005856   Mean   : 5.250e-06   Mean   : 8.494e-05  
+    ##  3rd Qu.: 0.0059251   3rd Qu.: 5.148e-03   3rd Qu.: 2.407e-03  
+    ##  Max.   : 0.0906033   Max.   : 7.520e-02   Max.   : 7.392e-02  
+    ##    ClCl.EEMa            ClCl.VNQa         
+    ##  Min.   :-0.1247925   Min.   :-0.1772774  
+    ##  1st Qu.:-0.0067539   1st Qu.:-0.0052663  
+    ##  Median : 0.0010023   Median : 0.0009266  
+    ##  Mean   : 0.0002299   Mean   : 0.0003324  
+    ##  3rd Qu.: 0.0076026   3rd Qu.: 0.0067994  
+    ##  Max.   : 0.0805289   Max.   : 0.0899666
+
+The prices are daily starting from 3rd January 2007. To get an idea of
+the kind of returns that they have provided, let’s calculate the percent
+changes between two closing prices of each of these assets.
+
+Based on the summary statistics of the stocks, we can infer that
+SPY,TLT,LQD are in the safe category as their returns are in a
+resaonable range.
+
+-   TLT with +75% and -66%
+-   LQD with +-9%
+-   SPY with +14% and -10%
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-24-2.png" style="display: block; margin: auto;" />
+From the charts above we can say that we have the data from the past
+which captures all the Bull and Bear runs of the market , which is very
+essintial for this use case.
+
+**During all the strategies, i have considered 8000 bootstrap samples
+from the past and plotted the 20 day returns for all the 3 strategies
+below**
+
+### Strategy one - Even split of my assets
+
+An even split of my assets would be 20% across all the ETF’s.Here, we
+assume that we re-distribute the total capital at the end of each day
+equally amongst the five ETFs.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
+
+The above histogram shows the difference between final amount at the end
+of 20 days and the initial wealth invested. Negtives indicate losses and
+positive means profits. The value at risk at the 5% level is $
+-5360.6851329
+
+### Strategy two - Safer than even split
+
+We notice that *SPY*, *TLT* and *LQD* are the safe bets in the summary
+stats.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-26-1.png" style="display: block; margin: auto;" />
+
+The above histogram shows the difference between final amount at the end
+of 20 days and the initial wealth invested. Negtives mean losses and
+positive means profits. The value at risk at the 5% level is $
+-3890.02276
+
+### Strategy three - Aggressive strategy
+
+Similarly, we notice that *VNQ* and *EEM* are the riskier portfolios due
+to their volatile nature. Since we are going with aggressive strategy we
+invest more in EEMs due to the possibility of a very large return on my
+investment.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-27-1.png" style="display: block; margin: auto;" />
+
+    ##            used  (Mb) gc trigger  (Mb) limit (Mb) max used  (Mb)
+    ## Ncells  4410511 235.6    7512791 401.3         NA  7512791 401.3
+    ## Vcells 11815568  90.2   19430907 148.3      16384 19430907 148.3
+
+The above histogram shows the difference between final amount at the end
+of 20 days and the initial wealth invested. Negtives mean losses and
+positive means profits. The value at risk at the 5% level is $
+-8471.6277494
+
+### Results
+
+Looking at the bootstrap resamples and the related value at risk at 5%,
+we see that -
+
+*1. Strategy one - Even split of my assets - has a value at risk at 5%
+of $-5360.6851329. We would end up with around USD 1.0046411^{5} on
+average with a possibility to even reach USD 1.1573457^{5}*
+
+*2. Strategy two - Safer than even split - has a value at risk at 5% of
+$-3890.02276. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0029497^{5} and the max we can
+possibly make is USD 1.1195083^{5}.*
+
+*3. Strategy three - Aggressive strategy- has a value at risk at 5% of
+$-8471.6277494. There is a super high risk with this investment.
+Although the average is still around USD 1.0061984^{5}, we can possible
+more than double our money and end up with USD 1.278865^{5} or lose a
+lot and end up with just USD 6.9156711^{4}.*
+
+### Krish Portfolio Modelling
+
+# Q1
+
+## Background
+
+### In this problem, you will construct three different portfolios of exchange-traded funds, or ETFs, and use bootstrap resampling to analyze the short-term tail risk of your portfolios. If you’re unfamiliar with exchange-traded funds, you can read a bit about them here.
+
+## The Goal
+
+### Suppose you have $100,000 in capital. Your task is to:
+
+-   Construct two different possibilities for an ETF-based portfolio,
+    each involving an allocation of your $100,000 in capital to
+    somewhere between 3 and 10 different ETFs. You can find a big
+    database of ETFs here.
+
+-   Download the last five years of daily data on your chosen ETFs,
+    using the functions in the quantmod package, as we used in class.
+    Note: make sure to choose ETFs for which at least five years of data
+    are available. There are tons of ETFs and some are quite new!
+
+-   Use bootstrap resampling to estimate the 4-week (20 trading day)
+    value at risk of each of your three portfolios at the 5% level.
+
+-   Write a report summarizing your portfolios and your VaR findings.
+
+### You should assume that your portfolios are rebalanced each day at zero transaction cost. For example, if you’re allocating your wealth evenly among 5 ETFs, you always redistribute your wealth at the end of each day so that the equal five-way split is retained, regardless of that day’s appreciation/depreciation.
+
+## Notes
+
+-   Make sure the portfolios are different from each other! (Maybe one
+    seems safe, another aggressive, or something like that.) You’re not
+    being graded on what specific portfolios you choose… just provide
+    some context for your choices.
+
+-   If you’re unfamiliar with value at risk (VaR), you can refer to any
+    basic explanation of the idea, e.g. here, here, or here.
+
+-   For the first portfolio, I picked 5 random stocks from the database
+    of ETFs, thus giving me a diverse portfolio with many elements. I
+    made sure for every stock I picked that there were at least 5 years
+    of data.
+
+<!-- -->
+
+    ##                ClCl.IWRa     ClCl.VNQa     ClCl.SPYa    ClCl.USOa   ClCl.GOVTa
+    ## 2016-08-03            NA            NA            NA           NA           NA
+    ## 2016-08-04  0.0004615438 -0.0040821051  0.0010639791  0.015479928  0.001909855
+    ## 2016-08-05  0.0075538923  0.0006647281  0.0081788687  0.002032469 -0.004574876
+    ## 2016-08-08 -0.0002861787  0.0017712388 -0.0005957925  0.024340848  0.000000000
+    ## 2016-08-09 -0.0009158920  0.0054150184  0.0005961477 -0.002970359  0.002680927
+    ## 2016-08-10 -0.0025212239 -0.0010992086 -0.0024749932 -0.029791386  0.001909855
+
+    ##                ClCl.IWRa     ClCl.VNQa     ClCl.SPYa    ClCl.USOa   ClCl.GOVTa
+    ## 2016-08-04  0.0004615438 -0.0040821051  0.0010639791  0.015479928  0.001909855
+    ## 2016-08-05  0.0075538923  0.0006647281  0.0081788687  0.002032469 -0.004574876
+    ## 2016-08-08 -0.0002861787  0.0017712388 -0.0005957925  0.024340848  0.000000000
+    ## 2016-08-09 -0.0009158920  0.0054150184  0.0005961477 -0.002970359  0.002680927
+    ## 2016-08-10 -0.0025212239 -0.0010992086 -0.0024749932 -0.029791386  0.001909855
+    ## 2016-08-11  0.0053998392 -0.0113336161  0.0046406681  0.045035770 -0.003431224
+
+-   Understanding the return behavior of the stocks
+
+<!-- -->
+
+    ##      Index              ClCl.IWRa         
+    ##  Min.   :2016-08-03   Min.   :-0.1379755  
+    ##  1st Qu.:2018-02-05   1st Qu.:-0.0041810  
+    ##  Median :2019-08-08   Median : 0.0009807  
+    ##  Mean   :2019-08-08   Mean   : 0.0024485  
+    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0064269  
+    ##  Max.   :2022-08-12   Max.   : 2.9363938  
+    ##                       NA's   :1
+
+    ##      Index              ClCl.VNQa         
+    ##  Min.   :2016-08-03   Min.   :-0.1772773  
+    ##  1st Qu.:2018-02-05   1st Qu.:-0.0052662  
+    ##  Median :2019-08-08   Median : 0.0009221  
+    ##  Mean   :2019-08-08   Mean   : 0.0003271  
+    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0067669  
+    ##  Max.   :2022-08-12   Max.   : 0.0899666  
+    ##                       NA's   :1
+
+    ##      Index              ClCl.SPYa         
+    ##  Min.   :2016-08-03   Min.   :-0.1094237  
+    ##  1st Qu.:2018-02-05   1st Qu.:-0.0033009  
+    ##  Median :2019-08-08   Median : 0.0007051  
+    ##  Mean   :2019-08-08   Mean   : 0.0005914  
+    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0059158  
+    ##  Max.   :2022-08-12   Max.   : 0.0906033  
+    ##                       NA's   :1
+
+    ##      Index              ClCl.USOa         
+    ##  Min.   :2016-08-03   Min.   :-0.8679578  
+    ##  1st Qu.:2018-02-05   1st Qu.:-0.0106857  
+    ##  Median :2019-08-08   Median : 0.0017182  
+    ##  Mean   :2019-08-08   Mean   :-0.0002811  
+    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0128586  
+    ##  Max.   :2022-08-12   Max.   : 0.1666667  
+    ##                       NA's   :1
+
+    ##      Index              ClCl.GOVTa        
+    ##  Min.   :2016-08-03   Min.   :-0.0222462  
+    ##  1st Qu.:2018-02-05   1st Qu.:-0.0015854  
+    ##  Median :2019-08-08   Median : 0.0000000  
+    ##  Mean   :2019-08-08   Mean   : 0.0000121  
+    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0016083  
+    ##  Max.   :2022-08-12   Max.   : 0.0225758  
+    ##                       NA's   :1
+
+**Findings**
+
+-   The returns obtained for the ETFs are in the following ranges:- IWR
+    = -13% to 293%, VNQ = -17% to 9%, SPY = -10% to 9%, USO = -86% to
+    16%, GOVT = -2% to 2%
+
+-   Based on the summary statistics of the ETFs, we can infer that VNQ,
+    SPY and GOVT are in the safe category as their returns are in a
+    reasonable range.
+
+-   Split considered for Safe portfolio is VNQ:30%, SPY:35%, GOVT:35%
+
+-   We can infer that USO and IWR are high risk/return ETFs since they
+    have an extremely wide return range.
+
+-   Split considered for aggressive portfolio is IWR:50% and USO:50%
+
+-   Now simulate many different possible scenarios
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-36-3.png" style="display: block; margin: auto;" />
+
+    ## [1] "Value at risk for even split :  7970.7"
+
+    ## [1] "Value at risk for safe portfolio :  5104.88"
+
+    ## [1] "Value at risk for aggressive portfolio :  13152.63"
+
+**Findings**
+
+-   On seeing the above histogram graphs we can see that for the evenly
+    distributed portfolios the spread is quite uneven, for the safe
+    portfolio we observe a relatively even curve and for the aggressive
+    portfolio the variance is widespread.
+
+-   The value at risk for the safe portfolio is 5175.9 which is the
+    least risky portfolio as the name suggests, for the aggressive
+    portfolio is 13549.54 and the safe portfolio is more or less the
+    average of the safe and aggressive portfolios.
+
+### Ends Here Krish Portfolio Modelling
+
+## Clustering and PCA
+
+### K-Means
+
+-   After scaling the data, I used the k-means clustering algorithm. I
+    selected k = 2 because there were two types of wine, red and white,
+    each having 25 starters. I compare the averages of chemical
+    attributes for white wine and red wine in our original data with
+    those of the clustered data to check if the k-means has clustered
+    data points by wine color into red and white wine.
+
+<!-- -->
+
+    ## # A tibble: 2 × 13
+    ##   color fixed.acidity volatile.acidity citric.acid residual.sugar chlorides
+    ##   <chr>         <dbl>            <dbl>       <dbl>          <dbl>     <dbl>
+    ## 1 red            8.32            0.528       0.271           2.54    0.0875
+    ## 2 white          6.85            0.278       0.334           6.39    0.0458
+    ##   free.sulfur.dioxide total.sulfur.dioxide density    pH sulphates alcohol
+    ##                 <dbl>                <dbl>   <dbl> <dbl>     <dbl>   <dbl>
+    ## 1                15.9                 46.5   0.997  3.31     0.658    10.4
+    ## 2                35.3                138.    0.994  3.19     0.490    10.5
+    ##   quality
+    ##     <dbl>
+    ## 1    5.64
+    ## 2    5.88
+
+    ##        fixed.acidity     volatile.acidity          citric.acid 
+    ##            8.2895922            0.5319416            0.2695435 
+    ##       residual.sugar            chlorides  free.sulfur.dioxide 
+    ##            2.6342666            0.0883238           15.7647596 
+    ## total.sulfur.dioxide              density                   pH 
+    ##           48.6396835            0.9967404            3.3097200 
+    ##            sulphates              alcohol 
+    ##            0.6567194           10.4015216
+
+    ##        fixed.acidity     volatile.acidity          citric.acid 
+    ##           6.85167903           0.27458385           0.33524928 
+    ##       residual.sugar            chlorides  free.sulfur.dioxide 
+    ##           6.39402555           0.04510424          35.52152864 
+    ## total.sulfur.dioxide              density                   pH 
+    ##         138.45848785           0.99400486           3.18762464 
+    ##            sulphates              alcohol 
+    ##           0.48880511          10.52235888
+
+#### Inference :
+
+-   When we compare the averages of red and white wine chemical
+    characteristics in our original data to the averages of red and
+    white wine chemical properties in clustered data, we can see that
+    the averages of chemical properties for red wine in both original
+    and k-means clustered data are nearly the same. Similarly, the
+    averages of chemical attributes for white wine are nearly identical
+    in both the original and clustered data. This suggests that k-means
+    is easily capable of differentiating between red and white wines.
+
+-   To further validate this, I created a confusion matrix. In the
+    table, we can observe that k-means grouped data fairly accurately by
+    wine color. With a precision of 98.5 percent, we may infer that
+    k-means clustering performed admirably in terms of dimension
+    reduction.
+
+<!-- -->
+
+    ##        cluster
+    ## color    red white
+    ##   red   1575    24
+    ##   white   68  4830
+
+    ## [1] 0.9858396
+
+### PCA
+
+-   Following k-means clustering technique, I performed Principal
+    Component Analysis (PCA). The first three principal components
+    account for 64.3 percent of the total variation in the data set, as
+    seen in the table below. As a result, I clustered using the first
+    three components.
+
+<!-- -->
+
+    ## Importance of components:
+    ##                           PC1    PC2    PC3     PC4     PC5     PC6     PC7
+    ## Standard deviation     1.7407 1.5792 1.2475 0.98517 0.84845 0.77930 0.72330
+    ## Proportion of Variance 0.2754 0.2267 0.1415 0.08823 0.06544 0.05521 0.04756
+    ## Cumulative Proportion  0.2754 0.5021 0.6436 0.73187 0.79732 0.85253 0.90009
+    ##                            PC8     PC9   PC10    PC11
+    ## Standard deviation     0.70817 0.58054 0.4772 0.18119
+    ## Proportion of Variance 0.04559 0.03064 0.0207 0.00298
+    ## Cumulative Proportion  0.94568 0.97632 0.9970 1.00000
+
+    ##                         PC1    PC2    PC3
+    ## fixed.acidity        -0.239  0.336 -0.434
+    ## volatile.acidity     -0.381  0.118  0.307
+    ## citric.acid           0.152  0.183 -0.591
+    ## residual.sugar        0.346  0.330  0.165
+    ## chlorides            -0.290  0.315  0.017
+    ## free.sulfur.dioxide   0.431  0.072  0.134
+    ## total.sulfur.dioxide  0.487  0.087  0.107
+    ## density              -0.045  0.584  0.176
+    ## pH                   -0.219 -0.156  0.455
+    ## sulphates            -0.294  0.192 -0.070
+    ## alcohol              -0.106 -0.465 -0.261
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-41-1.png" style="display: block; margin: auto;" />
+
+    ##        cluster
+    ## color    red white
+    ##   red   1575    24
+    ##   white   82  4816
+
+    ## [1] 0.9836848
+
+#### Inference :
+
+-   The clustering performed by using the scores from three principal
+    components was very effective. The accuracy level was 98.3 percent.
+    However, PCA is not as simple as k-means. I formed the clusters
+    using the scores from the principal components. Because the accuracy
+    of k-means is significantly greater and it is straightforward, I
+    conclude that using the k-means technique for the supplied data
+    makes more sense.
+
+-   The quality of wine is rated on a scale of 1 to 10, but there are no
+    ratings of 1, 2, or 10 in our data set. As a result, the wine in our
+    data set was rated between 2 and 9, inclusive. I used k-means with
+    k= 7 and 25 starts.
+
+<!-- -->
+
+    ## [1] 5 6 7 4 8 3 9
+
+    ##             kmeans_cluster_2$cluster
+    ## wine$quality   1   2   3   4   5   6   7
+    ##            3   7   5   1   4   7   4   2
+    ##            4  61  64   2  21  24  15  29
+    ##            5 470 414  20  80 656 200 298
+    ##            6 347 538   9 528 645 266 503
+    ##            7  42 144   1 451 122 140 179
+    ##            8   2  30   0  96  21  14  30
+    ##            9   0   0   0   4   1   0   0
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-42-1.png" style="display: block; margin: auto;" />
+
+-   The confusion matrix shows that k-means clustering was unable to
+    distinguish between different qualities of wine. For example, each
+    cluster has a sizable number of wines rated 5, 6, and 7. There is no
+    noticeable difference. Also looking at the clustered data we cannot
+    come to a strong conclusion as there are overalapping clusters.
+
+## Market segmentation
+
+Objective : To create market segments based on the user interests and
+identify the profiles of those segments
+
+-   Explore the data for correlated interests  
+-   Normalize the data and perform clustering  
+-   Profile the clusters after k-means clustering
+
+#### Explore the data for correlated interests
+
+    ## 'data.frame':    7882 obs. of  37 variables:
+    ##  $ X               : chr  "hmjoe4g3k" "clk1m5w8s" "jcsovtak3" "3oeb4hiln" ...
+    ##  $ chatter         : int  2 3 6 1 5 6 1 5 6 5 ...
+    ##  $ current_events  : int  0 3 3 5 2 4 2 3 2 2 ...
+    ##  $ travel          : int  2 2 4 2 0 2 7 3 0 4 ...
+    ##  $ photo_sharing   : int  2 1 3 2 6 7 1 6 1 4 ...
+    ##  $ uncategorized   : int  2 1 1 0 1 0 0 1 0 0 ...
+    ##  $ tv_film         : int  1 1 5 1 0 1 1 1 0 5 ...
+    ##  $ sports_fandom   : int  1 4 0 0 0 1 1 1 0 9 ...
+    ##  $ politics        : int  0 1 2 1 2 0 11 0 0 1 ...
+    ##  $ food            : int  4 2 1 0 0 2 1 0 2 5 ...
+    ##  $ family          : int  1 2 1 1 1 1 0 0 2 4 ...
+    ##  $ home_and_garden : int  2 1 1 0 0 1 0 0 1 0 ...
+    ##  $ music           : int  0 0 1 0 0 1 0 2 1 1 ...
+    ##  $ news            : int  0 0 1 0 0 0 1 0 0 0 ...
+    ##  $ online_gaming   : int  0 0 0 0 3 0 0 1 2 1 ...
+    ##  $ shopping        : int  1 0 2 0 2 5 1 3 0 0 ...
+    ##  $ health_nutrition: int  17 0 0 0 0 0 1 1 22 7 ...
+    ##  $ college_uni     : int  0 0 0 1 4 0 1 0 1 4 ...
+    ##  $ sports_playing  : int  2 1 0 0 0 0 1 0 0 1 ...
+    ##  $ cooking         : int  5 0 2 0 1 0 1 10 5 4 ...
+    ##  $ eco             : int  1 0 1 0 0 0 0 0 2 1 ...
+    ##  $ computers       : int  1 0 0 0 1 1 1 1 1 2 ...
+    ##  $ business        : int  0 1 0 1 0 1 3 0 1 0 ...
+    ##  $ outdoors        : int  2 0 0 0 1 0 1 0 3 0 ...
+    ##  $ crafts          : int  1 2 2 3 0 0 0 1 0 0 ...
+    ##  $ automotive      : int  0 0 0 0 0 1 0 1 0 4 ...
+    ##  $ art             : int  0 0 8 2 0 0 1 0 1 0 ...
+    ##  $ religion        : int  1 0 0 0 0 0 1 0 0 13 ...
+    ##  $ beauty          : int  0 0 1 1 0 0 0 5 5 1 ...
+    ##  $ parenting       : int  1 0 0 0 0 0 0 1 0 3 ...
+    ##  $ dating          : int  1 1 1 0 0 0 0 0 0 0 ...
+    ##  $ school          : int  0 4 0 0 0 0 0 0 1 3 ...
+    ##  $ personal_fitness: int  11 0 0 0 0 0 0 0 12 2 ...
+    ##  $ fashion         : int  0 0 1 0 0 0 0 4 3 1 ...
+    ##  $ small_business  : int  0 0 0 0 1 0 0 0 1 0 ...
+    ##  $ spam            : int  0 0 0 0 0 0 0 0 0 0 ...
+    ##  $ adult           : int  0 0 0 0 0 0 0 0 0 0 ...
+
+    ##        User chatter current_events travel photo_sharing uncategorized
+    ## 1 hmjoe4g3k       2              0      2             2             2
+    ## 2 clk1m5w8s       3              3      2             1             1
+    ## 3 jcsovtak3       6              3      4             3             1
+    ## 4 3oeb4hiln       1              5      2             2             0
+    ## 5 fd75x1vgk       5              2      0             6             1
+    ## 6 h6nvj91yp       6              4      2             7             0
+
+-   Each column represents an area of interest that a sample twitter
+    follower would have tweeted about during the 7 day observation
+    period.
+-   Each cell in that column is the number of tweets that fell into that
+    interest area.
+-   We have about 7882 users with 36 areas of interest and one column
+    for uncategorised.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-44-2.png" style="display: block; margin: auto;" />
+**Findings:**
+
+1.  The most tweets fall into the chatter category which doesnt tell us
+    a lot about the audience. However, we do see many tweets about
+    health, cooking, gaming, photo sharing, fitness and university which
+    sort of hints towards a fitness savy, mostly young twitter
+    following. We have to check if there exists a cluster of interests
+    between the users.
+
+2.  It is very clear that the tweet\_count per variable is almost 8k
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-45-1.png" style="display: block; margin: auto;" />
+
+-   Shopping and photo-sharing are positively correlated  
+-   College\_uni and online\_gaming stands out with a strong positive
+    correlation  
+-   Health\_nutrition,peronal\_fitness and outdoors have a high positive
+    correlation showing these people are health conscious  
+-   Fashion and beauty have a strong postive correlation
+
+We can include all the variables in the cluster analysis to understand
+if the same points appear after profiling the clusters
+
+#### PCA
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-48-1.png" style="display: block; margin: auto;" />
+
+    cumsum(pca_var1)[11]
+
+    ## [1] 0.6367755
+
+    fviz_eig(pca_sm)
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-49-1.png" style="display: block; margin: auto;" />
+
+    get_eigenvalue(pca_sm)
+
+    ##        eigenvalue variance.percent cumulative.variance.percent
+    ## Dim.1   4.4361402       12.6746863                    12.67469
+    ## Dim.2   2.8202319        8.0578055                    20.73249
+    ## Dim.3   2.5326306        7.2360875                    27.96858
+    ## Dim.4   2.3416552        6.6904435                    34.65902
+    ## Dim.5   2.1550806        6.1573730                    40.81640
+    ## Dim.6   1.6716203        4.7760580                    45.59245
+    ## Dim.7   1.4845442        4.2415549                    49.83401
+    ## Dim.8   1.3873200        3.9637714                    53.79778
+    ## Dim.9   1.3241878        3.7833938                    57.58117
+    ## Dim.10  1.1224197        3.2069133                    60.78809
+    ## Dim.11  1.0113132        2.8894662                    63.67755
+    ## Dim.12  0.9311687        2.6604820                    66.33804
+    ## Dim.13  0.9240570        2.6401629                    68.97820
+    ## Dim.14  0.8856660        2.5304742                    71.50867
+    ## Dim.15  0.8702571        2.4864489                    73.99512
+    ## Dim.16  0.8377587        2.3935962                    76.38872
+    ## Dim.17  0.8052835        2.3008101                    78.68953
+    ## Dim.18  0.7282278        2.0806507                    80.77018
+    ## Dim.19  0.6901305        1.9718014                    82.74198
+    ## Dim.20  0.6484004        1.8525725                    84.59455
+    ## Dim.21  0.5671691        1.6204830                    86.21504
+    ## Dim.22  0.4813237        1.3752106                    87.59025
+    ## Dim.23  0.4684618        1.3384624                    88.92871
+    ## Dim.24  0.4256744        1.2162125                    90.14492
+    ## Dim.25  0.4197341        1.1992402                    91.34416
+    ## Dim.26  0.4052296        1.1577989                    92.50196
+    ## Dim.27  0.3990865        1.1402473                    93.64221
+    ## Dim.28  0.3782458        1.0807024                    94.72291
+    ## Dim.29  0.3589409        1.0255454                    95.74845
+    ## Dim.30  0.3527478        1.0078510                    96.75631
+    ## Dim.31  0.3032906        0.8665445                    97.62285
+    ## Dim.32  0.2346889        0.6705398                    98.29339
+    ## Dim.33  0.2279936        0.6514104                    98.94480
+    ## Dim.34  0.1914953        0.5471295                    99.49193
+    ## Dim.35  0.1778245        0.5080701                   100.00000
+
+-   Since none of the Eigen Values are not greater than on one and PCA
+    is not giving us any strong conclusion lets go and loot at K - Means
+
+#### Normalize the data and perform k - means clustering
+
+    ##  [1] 222792.4 200567.3 186133.5 174523.2 163762.5 153712.5 146485.9 139248.8
+    ##  [9] 132583.4 127235.8 122683.4 119481.2 116298.5 113253.2 111023.3
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-52-1.png" style="display: block; margin: auto;" />
+
+-   We can see that there is a clear bend at 6 on the graph for elbow,
+    so lets go with 6 clusters for K means
+
+**Cluster visualization**
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-55-1.png" style="display: block; margin: auto;" />
+The clusters look separated, as well as we can see many common points
+between clusters.Let’s identify the characteristics of the clusters.
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-57-6.png" style="display: block; margin: auto;" />
+
+**Results**
+
+-   There are multiple interesting profiles that came out of the
+    clusters  
+
+-   Cluster 1 - People who are grouped under cluster 1 tweet a lot about
+    photo *politics, travel and news*
+
+-   Cluster 2 - This Segment is full of people who are more focused on
+    their diet/ are a more fitness oriented people as they tweet a lot
+    about *health nutrition, Personal\_fintess, cooking*
+
+-   Cluster 3 - In this cluster people tweet about *Sports\_fandom,
+    religion, food*
+
+-   Cluster 4 - People in this segment are into social media, as they
+    talk about *Photo sharing, cooking and Fashion the most*
+
+-   Cluster 5 - In this segment tweets are more about *photo\_sharing,
+    current\_events, Shopping* they are mostly segmented into the group
+    of people who like to explore/party
+
+-   Cluster 6 - This segment is profoundly university students as they
+    tweet about *universities,online games and photo sharing*
+
+## Reuturs Corpus
+
+#### Question:
+
+We are trying to solve a author attribution problem in our use case, as
+our data is relevant for this type of problem. Author attribution is the
+task of identifying the author of a given document.
+
+#### Approach:
+
+The approach we used to solve this problem is as follows
+
+*Data preprocessing : *
+
+Due to the nature of the `tm` library that we are using for creating the
+corpus of text files, this problem involves a LOT of data
+pre-processing.
+
+-   Step 1 - Read in the training text files from individual folders.
+
+All the text files that will be used for training are stored in distinct
+folders, each labeled with the author’s name. I created a function that
+will extract all of these texts and save them in a dataframe.
+
+-   Step 2 - Convert data to corpus
+
+To perform any text analytics operation, we must first convert this to a
+corpus and then to a Document-Term matrix. This includes removing
+stopword, case conversion, removing special characters in end/begining,
+basically cleaning the text so that it can be used in for analysis.
+
+    ##    feature frequency rank docfreq group
+    ## 1     said     19856    1    2482   all
+    ## 2  percent      5211    2    1501   all
+    ## 3  million      4838    3    1358   all
+    ## 4     year      4277    4    1618   all
+    ## 5      new      3513    5    1472   all
+    ## 6   market      3219    6    1273   all
+    ## 7  company      3208    7    1214   all
+    ## 8  billion      3009    8    1058   all
+    ## 9      one      2750    9    1440   all
+    ## 10    also      2696   10    1545   all
+
+We can see that the most used word across the train data are *said,
+percent ,million, year*, this should give us an understanding on what
+most data speaks about.
+
+This concludes the data preparation step of the analysis. We do the same
+on test data as well.
+
+*Handling missing terms*
+
+A handful of terms in the test DTM document do not appear in the train
+matrix. To make things uniform and simple, we’ll only keep terms in the
+test matrix that are also in the train matrix! This will help us in
+maintaining a consistent vocabulary in our Document Term matrices for
+author prediction!
+
+*Principal Component Analysis*
+
+There are numerous features to choose from. Let’s utilize PCA to extract
+the most significant variables from the 782 unique phrases stated above!
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
+
+According to an overview of the variance described, 350 or so primary
+components account for roughly 50% of the total variance.
+
+1.  In the training dataset, we will now take the first 350 PC scores
+    from the PCA analysis as predictors.
+
+2.  Additionally, we want our testing results to be at the same scale as
+    the train data. We will scale the test data and multiply it by the
+    component loadings obtained!
+
+*Model Training*
+
+Now that we have created the training and testing matrices, let’s
+convert them to dataframes ready for modelling!
+
+*Model 1 - K-Nearest Neighbors*
+
+It makes sense that documents closer to each other (using similar terms)
+in terms of the Manhattan distance would be from the same author. Lets
+try K-Nearest Neighbors to predict the author for each document in the
+test set!
+
+1.  We will use a K Nearest neighbor model and look for the best K-value
+    in the range of 1-15.
+2.  For the distance metric, we will use the Manhattan distance
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-65-1.png" style="display: block; margin: auto;" />
+
+The plot shows that using 4 nearest neighbors, we get an overall
+accuracy of ~35%.
+
+-   Let us look at which author attribution did we get right and at what
+    accuracy did we do it.
+
+<!-- -->
+
+    ## # A tibble: 5 × 2
+    ##   Actual_Author   Accuracy
+    ##   <fct>              <dbl>
+    ## 1 TheresePoletti      0.9 
+    ## 2 LynnleyBrowning     0.88
+    ## 3 LynneO'Donnell      0.82
+    ## 4 KirstinRidley       0.8 
+    ## 5 JoWinterbottom      0.78
+
+-   Let us look at which author attribution did we not get right and at
+    what accuracy did we do it.
+
+<!-- -->
+
+    ## # A tibble: 5 × 2
+    ##   Actual_Author  Accuracy
+    ##   <fct>             <dbl>
+    ## 1 AlexanderSmith     0.02
+    ## 2 JaneMacartney      0.02
+    ## 3 EdnaFernandes      0.04
+    ## 4 KarlPenhaul        0.04
+    ## 5 RogerFillion       0.04
+
+*Model 2 - Random Forest*
+
+The accuracy with K Nearest Neighbors isnt good! We don’t want to do
+worse than a coin toss! Let’s try out the Random Forest models and check
+if we do any better! <br>
+
+1.  We will use a random forest model with 5000 trees with the default
+    value of variables to pick for each tree!
+
+<!-- -->
+
+    ## [1] "Accuracy is 59.12"
+
+The random Forest models give us 59.12% accuracy. This is much better
+than the knn model with 35% accuracy.
+
+-   Let us look at which author attribution did we get right and at what
+    accuracy did we do it.
+
+<!-- -->
+
+    ## # A tibble: 5 × 2
+    ##   Actual_Author   Accuracy
+    ##   <fct>              <dbl>
+    ## 1 JimGilchrist        1   
+    ## 2 LynnleyBrowning     1   
+    ## 3 KarlPenhaul         0.96
+    ## 4 RobinSidel          0.9 
+    ## 5 AaronPressman       0.84
+
+-   Let us look at which author attribution did we not get right and at
+    what accuracy did we do it.
+
+<!-- -->
+
+    ## # A tibble: 5 × 2
+    ##   Actual_Author    Accuracy
+    ##   <fct>               <dbl>
+    ## 1 TanEeLyn             0.06
+    ## 2 EdnaFernandes        0.12
+    ## 3 DarrenSchuettler     0.16
+    ## 4 ScottHillis          0.16
+    ## 5 BenjaminKangLim      0.18
+
+We see that accuricies are better than the knn model for both rightly
+redictd and wrongly predicted data ! This is a good candidate for a
+prediction model!
+
+*XGBoost model*
+
+Finally, let’s run the XGBoost model and check if it is able to improve
+upon the accuracy of the random Forest model. We believe so because by
+design XGBoost tries to capture the remaining pattern in the residuals
+of each previous model.
+
+    ## [1] "Accuracy is 53.84"
+
+So, we get 53.84% accuracy with XGboost. This is not better than the
+Random Forest model.
+
+*Model 4 - Naive Bayes*
+
+When it comes to identifying the author, Naive Bayes relies on the
+presumption that each observed phrase is independent of the others! As a
+result, we determine the likelihood of getting an author for each
+observed phrase in the test document term matrix! This is repeated for
+each term that is offered, and the result is the likelihood that an
+author is the source of the document.
+
+So we see that Naive Bayes achieves an accuracy of 62.32%.
+
+-   Let us look at which author attribution did we get right and at what
+    accuracy did we do it.
+
+<!-- -->
+
+    ## # A tibble: 5 × 2
+    ##   Actual_Author   Accuracy
+    ##   <chr>              <dbl>
+    ## 1 JimGilchrist        1   
+    ## 2 LynnleyBrowning     1   
+    ## 3 FumikoFujisaki      0.96
+    ## 4 KarlPenhaul         0.94
+    ## 5 AaronPressman       0.92
+
+### Conclusion
+
+To solve the author attribution with the data we have is not an easy
+task, but we achieved it with 62.32% accuracy using a Naive Bayes model.
+
+In the process we also found out that the frequency of words in the
+training and testing data are different, which could lead to an
+assumption that the train and test data are of different context’s and
+are non repetative.
+
+In the process we also saw saw the % of accuricies for each model
+predicting the right author.
+
+We have made a few assumptions during our process of which i have two to
+highlight we considered terms only that were 99% or more in frequency to
+the enitre document and we limited our test data to the terms that were
+there in the training data
+
+## Assocition Rule Mining
+
+    ## 'data.frame':    9835 obs. of  1 variable:
+    ##  $ V1: chr  "citrus fruit,semi-finished bread,margarine,ready soups" "tropical fruit,yogurt,coffee" "whole milk" "pip fruit,yogurt,cream cheese ,meat spreads" ...
+
+    ##       V1           
+    ##  Length:9835       
+    ##  Class :character  
+    ##  Mode  :character
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-76-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-76-2.png" style="display: block; margin: auto;" />
+We transform the data into a “transactions” class before applying the
+apriori algorithm in association rule mining.
+
+The summary of the dataset reveals the following:
+
+1.  There are total of 9835 transactions in our dataset
+
+2.  Whole milk is the present in 2513 baskets and is the most frequently
+    bought item
+
+3.  More than half of the transactions have 4 or lesser items per basket
+
+#### Approach 1
+
+-   support &gt; 0.05, confidence &gt; 0.1 and length &lt;= 2 using the
+    ‘apriori’ algorithm
+
+There are only 6 rules generated because of the high support and low
+confidence level. We also notice that most relationships in this item
+set include whole milk, yogurt and rolls/buns which is in accordance
+with the transaction frequency plot we saw earlier. These are some of
+the most frequently bought items.
+
+    ##     lhs                   rhs                support    confidence coverage 
+    ## [1] {yogurt}           => {whole milk}       0.05602440 0.4016035  0.1395018
+    ## [2] {whole milk}       => {yogurt}           0.05602440 0.2192598  0.2555160
+    ## [3] {rolls/buns}       => {whole milk}       0.05663447 0.3079049  0.1839349
+    ## [4] {whole milk}       => {rolls/buns}       0.05663447 0.2216474  0.2555160
+    ## [5] {other vegetables} => {whole milk}       0.07483477 0.3867578  0.1934926
+    ## [6] {whole milk}       => {other vegetables} 0.07483477 0.2928770  0.2555160
+    ##     lift     count
+    ## [1] 1.571735 551  
+    ## [2] 1.571735 551  
+    ## [3] 1.205032 557  
+    ## [4] 1.205032 557  
+    ## [5] 1.513634 736  
+    ## [6] 1.513634 736
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-78-1.png" style="display: block; margin: auto;" />
+
+-   support &gt; 0.02, confidence &gt; 0.2 and length &lt;= 2
+
+-   This item set contains 72 rules and includes a lot more items.
+    However, whole milk still seems to be a common occurence.
+    <img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-80-1.png" style="display: block; margin: auto;" />
+
+-   support &gt; 0.0015, confidence &gt; 0.8 and length &lt;= 2
+
+<img src="STA-Part2_files/figure-markdown_strict/unnamed-chunk-82-1.png" style="display: block; margin: auto;" />
+
+**Conclusion**
+
+From the association rules, some of the conclusions that can be drawn
+are:
+
+1.  People are more likely to buy bottled beer if they purchased red
+    wine or liquor
+
+2.  People are more likely to buy vegetables when they buy
+    vegetable/fruit juice
+
+3.  Whole milk is the most common item purchased by customers
+
+<!-- <!-- ### Approach 2 -->
+
+–&gt; <!-- # ```{r,echo=FALSE,include=FALSE} -->
+<!-- # # consider only unique items in each basket -->
+<!-- # item_list <- lapply(item_list, unique) --> <!-- #  -->
+<!-- # # convert to the transactions type -->
+<!-- # item_transactions <- as(item_list, "transactions") -->
+<!-- #  --> <!-- # # apply the apriori -->
+<!-- # groceryrules <- apriori(item_transactions, -->
+<!-- #                         parameter=list(support = .001, -->
+<!-- #                                        confidence = .5)) -->
+<!-- # head(groceryrules, n = 10, by ="lift") --> <!-- #  -->
+<!-- # plot(head(groceryrules, n = 10, by ="lift"), method = "graph",  -->
+<!-- #      main = "Top 10 Association Rules") --> <!-- # ``` -->
+
+<!-- <!-- **Conclusion** -->
+
+–&gt;
+
+<!-- <!-- A study of the associations shows us the following  -->
+
+–&gt;
+
+<!-- <!-- 1. People purchase soda, popcorn and other salty snacks together. -->
+
+–&gt;
+
+<!-- <!-- 2. Cheese, ham, white bread and eggs usually sell together. -->
+
+–&gt;
+
+<!-- <!-- 3. Sugar, baking powder and flour sell together, these are usually -->
+
+–&gt; <!-- <!-- baking items. --> –&gt;
+
+<!-- <!-- 4. Cheese, curd, whipped cream and yogurt sell together! -->
+
+–&gt;
