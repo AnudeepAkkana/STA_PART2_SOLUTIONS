@@ -1,7 +1,7 @@
 ---
 title: "STA 380 Part-2"
-author: "Viswa Tej Seela"
-date: "31 July 2022"
+author: "Viswa Tej Seela, Harshit Jain, Krish Engineer, Anudeep Akkana"
+date: "15 August 2022"
 output:
   md_document:
     variant: markdown_github
@@ -80,7 +80,7 @@ library(cluster)
 library(HSAUR)
 library(fpc)
 
-knitr::opts_chunk$set(fig.width=20, fig.height=10)
+knitr::opts_chunk$set(fig.width=15, fig.height=11)
 
 ```
 
@@ -197,7 +197,7 @@ You could use a single set of data-wrangling steps that combines the length and 
 ```{r,warning=FALSE,fig.align='center',echo=FALSE} 
 #Data Wrangling, getting songs organized by year 
 unique_songs = billboard %>%
-  filter(year>1958 & year<2021) %>%
+  filter(year>1958 & year<2022) %>%
   group_by(year) %>%
   summarize(songs_in_a_year=length(unique(song)))
 #Plotting the Data
@@ -913,7 +913,7 @@ Objective : To create market segments based on the user interests and identify t
  
 2. Scaling was done on raw data
  
-3. Hierarchical clustering was performed on raw data and it was found the observations werenot entirely conclusive. The clusters also were not properly distinct.The objective of our experiment i.e segmentation was not being met properly  So we decided to go a step ahead and do PCA on the raw data and then make it go through hierarchial custering to get improved clustering.
+3. Hierarchical clustering was performed on raw data and it was found the observations werenot entirely conclusive. The clusters also were not properly distinct.The objective of our experiment i.e segmentation was not being met properly  So we decided to go a step ahead and do PCA on the raw data and then make it go through K-means custering to get improved clustering.
 
 #### Explore the data for correlated interests  
 ```{r,warning=FALSE,fig.align='center',echo=FALSE}
@@ -1083,33 +1083,33 @@ sigma = attr(scl_scaled,"scaled:scale")
 ```
 
 ```{r,warning=FALSE,fig.align='center', echo=FALSE, include=FALSE}
-pca_sm = prcomp(scl_scaled, scale=FALSE, center = TRUE)
+pca_sm = prcomp(scl_scaled, scale=TRUE, center = TRUE)
 summary(pca_sm)
-#plot(pca_sm, type= 'l')
+plot(pca_sm, type= 'l')
 ```
 
 
 ```{r,warning=FALSE,fig.align='center', echo=FALSE}
 pca_var <-  pca_sm$sdev ^ 2
 pca_var1 <- pca_var / sum(pca_var)
-#Cumulative sum of variation explained
-plot(cumsum(pca_var1), xlab = "Principal Component", 
-     ylab = "Fraction of variance explained")
+get_eigenvalue(pca_sm)
 ```
 
 ```{r,warning=FALSE,fig.align='center', echo=TRUE}
 fviz_eig(pca_sm)
-get_eigenvalue(pca_sm)
 ```
-* Since none of the Eigen Values are not greater than on one and PCA is not giving us any strong conclusion lets go and look at K - Means 
+
+* Since we can clearly see from the above graph and the summary table for after 10 components the eigen value drops below 1 , hence according to Kaiser Rule  we will consider 10 dimensions for PCA. 
+
+* Now we take that data from the PCA with 10 dimensions we will look at K-Means Clustering
 
 ```{r,warning=FALSE,fig.align='center', echo=FALSE, include=FALSE,echo=TRUE}
-varimax(pca_sm$rotation[, 1:16])$loadings
+varimax(pca_sm$rotation[, 1:11])$loadings
 ```
 
 ```{r,warning=FALSE,fig.align='center', echo=FALSE,include=FALSE}
 scores = pca_sm$x
-pc_data <- as.data.frame(scores[,1:16])
+pc_data <- as.data.frame(scores[,1:11])
 X <- pc_data
 ```
 
@@ -1218,7 +1218,7 @@ ggplot(social_clust1_main, aes(x =reorder(type, -Cluster_6) , y=Cluster_6)) + co
 * There are multiple interesting profiles that came out of the clusters       
 * Cluster 1 - People who are grouped under cluster 1 tweet a lot about photo *politics, travel and news*
 
-* Cluster 2 - This Segment is full of people who are more focused on their diet/ are a more fitness oriented people as they tweet a lot about *health nutrition, Personal_fintess, cooking*
+* Cluster 2 - This Segment is full of people who are more focused on their diet/ are a more fitness oriented people as they tweet a lot about *health nutrition, Personal_fitness, cooking*
 
 * Cluster 3 - In this cluster people tweet about *Sports_fandom, religion, food*
 
@@ -1796,6 +1796,16 @@ From the association rules, some of the conclusions that can be drawn are:
 2. People are more likely to buy vegetables when they buy vegetable/fruit juice
 
 3. Whole milk is the most common item purchased by customers
+
+
+## References
+
+1. We have referred Stack overflow for the issues/errors/syntax while coding -  https://stackoverflow.com/
+
+2. Professor James Scott class slides - https://github.com/Vishu611/STA380-Part2-JamesProffclass/tree/master/slides
+
+3. R site official documentation - https://www.r-project.org/other-docs.html
+
 
 <!-- <!-- ### Approach 2 --> 
 <!-- # ```{r,warning=FALSE,fig.align='center',echo=FALSE,include=FALSE, eval=FALSE} -->
