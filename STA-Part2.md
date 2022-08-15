@@ -1,4 +1,13 @@
 <!-- Actual text starts here -->
+Link to RMD file: https://github.com/AnudeepAkkana/STA_PART2_SOLUTIONS
+
+Group Members
+
+Viswa Tej Seela
+Anudeep Kumar Akkana
+Harshit Jain
+Krish Engineer
+
 ## Probability Practice
 
 ### Part A.
