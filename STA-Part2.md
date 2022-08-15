@@ -98,45 +98,6 @@ FN
 -   Using the above calculations, we can see that there is a *0.1988*
     probability of having a disease if the test result is positive
 
--   From this, we can infer that only \~20 out of 100 people who are
-    tested positive have the disease
-
-\*This is not very conclusive of having the disease, therefore most
-people who test positive would have to take the test multiple times
-before being sure.
-
-**Suppose, if this is the only test available for screening,there can be
-an interesting procedure that can be followed to reduce the false
-positives**
-
--   Consider the people who were tested positive for the first time and
-    perform the test again given that the specificty and the sensitivity
-    of the test remains constant
-
--   One notable change is that the total probability of having a disease
-    will change in this scenario
-
--   Probability of positive test result given the presence of disease
-    *P*(*P*/*D*) = 0.993
-
--   Probability of negative result given there is no disease
-    *P*(*N*/*N**o**D**i**s*) = 0.9999
-
--   Total probability of having a disease  
-    *P*(*D*) = 0.1988
-
-Following is the confusion matrix for the second test
-
-| Confusion matrix |           |            |     |
-|------------------|-----------|------------|-----|
-| Test Result      | Disease   | No Disease |     |
-| Postive          | 24,653.90 | 10.00      |     |
-| Negative         | 173.79    | 99,987.31  |     |
-
-\*\*If the test result is positive even in the second test, then we can
-sure that there is a 0.9996 i.e (99.96% sure ) probability that the
-person is having a disease.
-
 ## Wrangling the Billboard Top 100
 
 ### Part A
@@ -174,17 +135,19 @@ the same title.)
 | Jewel                                     | Foolish Games/You Were Meant For Me |                       65 |
 | Carrie Underwood                          | Before He Cheats                    |                       64 |
 
-###Part B Is the “musical diversity” of the Billboard Top 100 changing
-over time? Let’s find out. We’ll measure the musical diversity of given
-year as the number of unique songs that appeared in the Billboard Top
-100 that year. Make a line graph that plots this measure of musical
-diversity over the years. The x axis should show the year, while the y
-axis should show the number of unique songs appearing at any position on
-the Billboard Top 100 chart in any week that year. For this part, please
-filter the data set so that it excludes the years 1958 and 2021, since
-we do not have complete data on either of those years. Give the figure
-an informative caption in which you explain what is shown in the figure
-and comment on any interesting trends you see.
+### Part B
+
+Is the “musical diversity” of the Billboard Top 100 changing over time?
+Let’s find out. We’ll measure the musical diversity of given year as the
+number of unique songs that appeared in the Billboard Top 100 that year.
+Make a line graph that plots this measure of musical diversity over the
+years. The x axis should show the year, while the y axis should show the
+number of unique songs appearing at any position on the Billboard Top
+100 chart in any week that year. For this part, please filter the data
+set so that it excludes the years 1958 and 2021, since we do not have
+complete data on either of those years. Give the figure an informative
+caption in which you explain what is shown in the figure and comment on
+any interesting trends you see.
 
 There are number of ways to accomplish the data wrangling here. We offer
 you two hints on two possibilities:
@@ -207,9 +170,11 @@ clearly see how iTunes and streaming began to have an impact starting
 around 2005. Maybe a consolidation of genres in the zeitgeist might be
 blamed for the reduction of musical diversity in the 20th century.*
 
-###Part C Let’s define a “ten-week hit” as a single song that appeared
-on the Billboard Top 100 for at least ten weeks. There are 19 artists in
-U.S. musical history since 1958 who have had at least 30 songs that were
+### Part C
+
+Let’s define a “ten-week hit” as a single song that appeared on the
+Billboard Top 100 for at least ten weeks. There are 19 artists in U.S.
+musical history since 1958 who have had at least 30 songs that were
 “ten-week hits.” Make a bar plot for these 19 artists, showing how many
 ten-week hits each one had in their musical career. Give the plot an
 informative caption in which you explain what is shown.
@@ -279,26 +244,29 @@ Importing the data and all the required libraries
     analysis. In teh next section, we will check or the influence of
     confounding vairables on the Rent of green and non-green buildings
 
-2.We will create some hypotheses using which we will steer through the
-data to understand if the data agrees with the respective hypotheses  
-a.Less leasing_rate might be a proxy for less demand for commercial
-real-estate  
-b.Rent decreases with age for buildings  
-c.Renovated buildings with age \>30 years get higher rent than buidings
-with age \< 30 without renovation  
-d.Buidings with amenities have higher rents than the other buildings
-e.class_a buildings have higher rent than the other buildings
+1.  We will create some hypotheses using which we will steer through the
+    data to understand if the data agrees with the respective
+    hypotheses  
+    a.Less leasing_rate might be a proxy for less demand for commercial
+    real-estate  
+    b.Rent decreases with age for buildings  
+    c.Renovated buildings with age \>30 years get higher rent than
+    buidings with age \< 30 without renovation  
+    d.Buidings with amenities have higher rents than the other buildings
+    e.class_a buildings have higher rent than the other buildings
 
 Let’s plot the respective distribution to find if the hypotheses can be
 supported using the relationships
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-7-1.png" style="display: block; margin: auto;" />
 
-**Findings**:  
-\* Age has no visible relation with Rent when all buildings are
-considered  
-\* Buildings with Amenities and class_a quality material have slightly
-higher rent than the other buildings
+**Findings**:
+
+-   Age has no visible relation with Rent when all buildings are
+    considered
+
+-   Buildings with Amenities and class_a quality material have slightly
+    higher rent than the other buildings
 
 #### Step 2: Comparison of different variables for Green and Non-Green buildings
 
@@ -306,11 +274,13 @@ Lets check the above hypotheses for Green and Non-Green buildings
 separtely to see if there is any influence
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-8-1.png" style="display: block; margin: auto;" />
-**Findings**:  
-\* Older Green Buildings have the possibility of charging higher rents
-when they are renovated  
-\* There are no variables that affect the distribution of rent even
-after the buildings are split into green and non-green buildings
+**Findings**:
+
+-   Older Green Buildings have the possibility of charging higher rents
+    when they are renovated
+
+-   There are no variables that affect the distribution of rent even
+    after the buildings are split into green and non-green buildings
 
 #### Step 3: Deep Diving into some of the potential variables to see the difference between rents between green and non-green buildings
 
@@ -362,7 +332,7 @@ extra $750,000 revenue can be earned by building a green building.*
 and even with 90% occupancy as is evident from data, the builder can
 start earning profits after 7.4 years*
 
-##Visual story telling part 2: Capital Metro data
+## Visual story telling part 2: Capital Metro data
 
     ##   timestamp    boarding   alighting day_of_week temperature hour_of_day 
     ##           0           0           0           0           0           0 
@@ -534,7 +504,7 @@ equally amongst the five ETFs.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5073.5355408
+-5326.0035985
 
 ### Strategy two - Safer than even split
 
@@ -546,7 +516,7 @@ stats.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3813.9976231
+-3865.0134524
 
 ### Strategy three - Aggressive strategy
 
@@ -568,13 +538,13 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5073.5355408. We would end up with around USD 1.0048808^{5} on
-average with a possibility to even reach USD 1.1464515^{5}*
+of $-5326.0035985. We would end up with around USD 1.0048373^{5} on
+average with a possibility to even reach USD 1.1684729^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3813.9976231. The strategy to play safer shows in the results. On
-average we end up with around USD 1.0033349^{5} and the max we can
-possibly make is USD 1.1006796^{5}.*
+$-3865.0134524. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0030368^{5} and the max we can
+possibly make is USD 1.1054653^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
@@ -893,6 +863,17 @@ identify the profiles of those segments
 -   Normalize the data and perform clustering  
 -   Profile the clusters after k-means clustering
 
+1.  4 columns(chatter,spam,adult,uncategorised) were removed
+
+2.  Scaling was done on raw data
+
+3.  Hierarchical clustering was performed on raw data and it was found
+    the observations werenot entirely conclusive. The clusters also were
+    not properly distinct.The objective of our experiment i.e
+    segmentation was not being met properly So we decided to go a step
+    ahead and do PCA on the raw data and then make it go through
+    hierarchial custering to get improved clustering.
+
 #### Explore the data for correlated interests
 
     ## 'data.frame':    7882 obs. of  37 variables:
@@ -953,18 +934,23 @@ identify the profiles of those segments
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-42-2.png" style="display: block; margin: auto;" />
 **Findings:**
 
-1.  The most tweets fall into the chatter category which doesnt tell us
+1.  The most tweets fall into the chatter category which doesn’t tell us
     a lot about the audience. However, we do see many tweets about
     health, cooking, gaming, photo sharing, fitness and university which
-    sort of hints towards a fitness savy, mostly young twitter
-    following. We have to check if there exists a cluster of interests
-    between the users.
+    sort of hints towards fitness , mostly young twitter following. We
+    have to check if there exists a cluster of interests between the
+    users.
 
 2.  It is very clear that the tweet_count per variable is almost 8k
 
 ``` r
 #Removing the labels from the data
-cormat <- cor(social_marketing_data[c(2:37)])
+#removing 4 not needed columns
+analysis$chatter<- NULL
+analysis$spam <- NULL
+analysis$adult <- NULL
+analysis$uncategorised <- NULL 
+cormat <- cor(analysis[c(2:33)])
 ggcorrplot(cormat,hc.order = TRUE,lab = TRUE)
 ```
 
@@ -995,49 +981,46 @@ get_eigenvalue(pca_sm)
 ```
 
     ##        eigenvalue variance.percent cumulative.variance.percent
-    ## Dim.1   4.4361402       12.6746863                    12.67469
-    ## Dim.2   2.8202319        8.0578055                    20.73249
-    ## Dim.3   2.5326306        7.2360875                    27.96858
-    ## Dim.4   2.3416552        6.6904435                    34.65902
-    ## Dim.5   2.1550806        6.1573730                    40.81640
-    ## Dim.6   1.6716203        4.7760580                    45.59245
-    ## Dim.7   1.4845442        4.2415549                    49.83401
-    ## Dim.8   1.3873200        3.9637714                    53.79778
-    ## Dim.9   1.3241878        3.7833938                    57.58117
-    ## Dim.10  1.1224197        3.2069133                    60.78809
-    ## Dim.11  1.0113132        2.8894662                    63.67755
-    ## Dim.12  0.9311687        2.6604820                    66.33804
-    ## Dim.13  0.9240570        2.6401629                    68.97820
-    ## Dim.14  0.8856660        2.5304742                    71.50867
-    ## Dim.15  0.8702571        2.4864489                    73.99512
-    ## Dim.16  0.8377587        2.3935962                    76.38872
-    ## Dim.17  0.8052835        2.3008101                    78.68953
-    ## Dim.18  0.7282278        2.0806507                    80.77018
-    ## Dim.19  0.6901305        1.9718014                    82.74198
-    ## Dim.20  0.6484004        1.8525725                    84.59455
-    ## Dim.21  0.5671691        1.6204830                    86.21504
-    ## Dim.22  0.4813237        1.3752106                    87.59025
-    ## Dim.23  0.4684618        1.3384624                    88.92871
-    ## Dim.24  0.4256744        1.2162125                    90.14492
-    ## Dim.25  0.4197341        1.1992402                    91.34416
-    ## Dim.26  0.4052296        1.1577989                    92.50196
-    ## Dim.27  0.3990865        1.1402473                    93.64221
-    ## Dim.28  0.3782458        1.0807024                    94.72291
-    ## Dim.29  0.3589409        1.0255454                    95.74845
-    ## Dim.30  0.3527478        1.0078510                    96.75631
-    ## Dim.31  0.3032906        0.8665445                    97.62285
-    ## Dim.32  0.2346889        0.6705398                    98.29339
-    ## Dim.33  0.2279936        0.6514104                    98.94480
-    ## Dim.34  0.1914953        0.5471295                    99.49193
-    ## Dim.35  0.1778245        0.5080701                   100.00000
+    ## Dim.1   4.3602296       14.0652569                    14.06526
+    ## Dim.2   2.8022958        9.0396639                    23.10492
+    ## Dim.3   2.5112081        8.1006711                    31.20559
+    ## Dim.4   2.3260725        7.5034597                    38.70905
+    ## Dim.5   2.1522085        6.9426080                    45.65166
+    ## Dim.6   1.6184271        5.2207324                    50.87239
+    ## Dim.7   1.4584385        4.7046402                    55.57703
+    ## Dim.8   1.3772899        4.4428707                    60.01990
+    ## Dim.9   1.1234567        3.6240538                    63.64396
+    ## Dim.10  1.0097627        3.2572989                    66.90126
+    ## Dim.11  0.9318664        3.0060206                    69.90728
+    ## Dim.12  0.8788697        2.8350636                    72.74234
+    ## Dim.13  0.8513936        2.7464309                    75.48877
+    ## Dim.14  0.8056146        2.5987567                    78.08753
+    ## Dim.15  0.7234314        2.3336497                    80.42118
+    ## Dim.16  0.6546396        2.1117408                    82.53292
+    ## Dim.17  0.5682773        1.8331524                    84.36607
+    ## Dim.18  0.4837038        1.5603347                    85.92640
+    ## Dim.19  0.4722343        1.5233363                    87.44974
+    ## Dim.20  0.4276851        1.3796293                    88.82937
+    ## Dim.21  0.4217956        1.3606310                    90.19000
+    ## Dim.22  0.4083812        1.3173586                    91.50736
+    ## Dim.23  0.3992588        1.2879315                    92.79529
+    ## Dim.24  0.3808384        1.2285110                    94.02380
+    ## Dim.25  0.3594740        1.1595936                    95.18340
+    ## Dim.26  0.3532794        1.1396108                    96.32301
+    ## Dim.27  0.3048934        0.9835270                    97.30653
+    ## Dim.28  0.2360916        0.7615858                    98.06812
+    ## Dim.29  0.2282973        0.7364428                    98.80456
+    ## Dim.30  0.1923700        0.6205484                    99.42511
+    ## Dim.31  0.1782155        0.5748888                   100.00000
 
 -   Since none of the Eigen Values are not greater than on one and PCA
-    is not giving us any strong conclusion lets go and loot at K - Means
+    is not giving us any strong conclusion lets go and look at K - Means
 
 #### Normalize the data and perform k - means clustering
 
-    ##  [1] 222792.4 200567.3 186133.5 174523.2 163762.5 153712.5 146485.9 139248.8
-    ##  [9] 132583.4 127235.8 122683.4 119481.2 116298.5 113253.2 111023.3
+    ##  [1] 201637.00 179738.76 165389.79 153600.64 142782.02 132750.03 125780.20
+    ##  [8] 119096.98 113923.47 109291.40 106043.54 102827.33 100598.08  98536.47
+    ## [15]  96799.51
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-50-1.png" style="display: block; margin: auto;" />
 
@@ -1046,11 +1029,11 @@ get_eigenvalue(pca_sm)
 
 **Cluster visualization**
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-53-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-52-1.png" style="display: block; margin: auto;" />
 The clusters look separated, as well as we can see many common points
 between clusters.Let’s identify the characteristics of the clusters.
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-55-6.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-6.png" style="display: block; margin: auto;" />
 
 **Results**
 
@@ -1089,11 +1072,7 @@ task of identifying the author of a given document.
 
 The approach we used to solve this problem is as follows
 
-*Data preprocessing : *
-
-Due to the nature of the `tm` library that we are using for creating the
-corpus of text files, this problem involves a LOT of data
-pre-processing.
+**Data preprocessing :**
 
 -   Step 1 - Read in the training text files from individual folders.
 
@@ -1127,20 +1106,12 @@ most data speaks about.
 This concludes the data preparation step of the analysis. We do the same
 on test data as well.
 
-*Handling missing terms*
-
-A handful of terms in the test DTM document do not appear in the train
-matrix. To make things uniform and simple, we’ll only keep terms in the
-test matrix that are also in the train matrix! This will help us in
-maintaining a consistent vocabulary in our Document Term matrices for
-author prediction!
-
-*Principal Component Analysis*
+**PCA**
 
 There are numerous features to choose from. Let’s utilize PCA to extract
 the most significant variables from the 782 unique phrases stated above!
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-60-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-59-1.png" style="display: block; margin: auto;" />
 
 According to an overview of the variance described, 350 or so primary
 components account for roughly 50% of the total variance.
@@ -1152,7 +1123,7 @@ components account for roughly 50% of the total variance.
     the train data. We will scale the test data and multiply it by the
     component loadings obtained!
 
-*Model Training*
+**Model Training**
 
 Now that we have created the training and testing matrices, let’s
 convert them to dataframes ready for modelling!
@@ -1186,7 +1157,7 @@ for (i in 1:15){
 plot(c(1:15), accuracies, main = "KNN accuracy vs K", xlab = "K-Values", ylab = "Accuracy Score", lty = 1)
 ```
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-63-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
 
 The plot shows that using 4 nearest neighbors, we get an overall
 accuracy of \~35%.
@@ -1230,9 +1201,9 @@ if we do any better! <br>
 
 <!-- -->
 
-    ## [1] "Accuracy is 59.32"
+    ## [1] "Accuracy is 59.04"
 
-The random Forest models give us 59.32% accuracy. This is much better
+The random Forest models give us 59.04% accuracy. This is much better
 than the knn model with 35% accuracy.
 
 -   Let us look at which author attribution did we get right and at what
@@ -1246,8 +1217,8 @@ than the knn model with 35% accuracy.
     ## 1 JimGilchrist        1   
     ## 2 LynnleyBrowning     1   
     ## 3 KarlPenhaul         0.96
-    ## 4 RobinSidel          0.9 
-    ## 5 MatthewBunce        0.88
+    ## 4 MatthewBunce        0.86
+    ## 5 RobinSidel          0.86
 
 -   Let us look at which author attribution did we not get right and at
     what accuracy did we do it.
@@ -1258,10 +1229,10 @@ than the knn model with 35% accuracy.
     ##   Actual_Author    Accuracy
     ##   <fct>               <dbl>
     ## 1 TanEeLyn             0.08
-    ## 2 DarrenSchuettler     0.16
-    ## 3 EdnaFernandes        0.16
-    ## 4 DavidLawder          0.18
-    ## 5 ScottHillis          0.18
+    ## 2 EdnaFernandes        0.12
+    ## 3 ScottHillis          0.16
+    ## 4 DarrenSchuettler     0.18
+    ## 5 BenjaminKangLim      0.2
 
 We see that accuricies are better than the knn model for both rightly
 redictd and wrongly predicted data ! This is a good candidate for a
@@ -1356,7 +1327,7 @@ there in the training data
     ##  Class :character  
     ##  Mode  :character
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-74-1.png)![](STA-Part2_files/figure-markdown_github/unnamed-chunk-74-2.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-73-1.png)![](STA-Part2_files/figure-markdown_github/unnamed-chunk-73-2.png)
 We transform the data into a “transactions” class before applying the
 apriori algorithm in association rule mining.
 
@@ -1393,19 +1364,19 @@ the most frequently bought items.
     ## [5] 1.513634 736  
     ## [6] 1.513634 736
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-76-1.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-75-1.png)
 
 -   support \> 0.02, confidence \> 0.2 and length \<= 2
 
 -   This item set contains 72 rules and includes a lot more items.
     However, whole milk still seems to be a common occurence.
-    ![](STA-Part2_files/figure-markdown_github/unnamed-chunk-78-1.png)
+    ![](STA-Part2_files/figure-markdown_github/unnamed-chunk-77-1.png)
 
 -   support \> 0.0015, confidence \> 0.8 and length \<= 2
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-80-1.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-79-1.png)
 
-**Conclusion**
+### Conclusion
 
 From the association rules, some of the conclusions that can be drawn
 are:
