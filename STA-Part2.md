@@ -504,7 +504,7 @@ equally amongst the five ETFs.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5222.9838236
+-5494.4304598
 
 ### Strategy two - Safer than even split
 
@@ -516,7 +516,7 @@ stats.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3850.4390774
+-3972.8902099
 
 ### Strategy three - Aggressive strategy
 
@@ -538,13 +538,13 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5222.9838236. We would end up with around USD 1.0049305^{5} on
-average with a possibility to even reach USD 1.1525874^{5}*
+of $-5494.4304598. We would end up with around USD 1.0047844^{5} on
+average with a possibility to even reach USD 1.1412408^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3850.4390774. The strategy to play safer shows in the results. On
-average we end up with around USD 1.002726^{5} and the max we can
-possibly make is USD 1.1003971^{5}.*
+$-3972.8902099. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0027307^{5} and the max we can
+possibly make is USD 1.0960072^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
@@ -719,8 +719,8 @@ identify the profiles of those segments
     the observations werenot entirely conclusive. The clusters also were
     not properly distinct.The objective of our experiment i.e
     segmentation was not being met properly So we decided to go a step
-    ahead and do PCA on the raw data and then make it go through
-    hierarchial custering to get improved clustering.
+    ahead and do PCA on the raw data and then make it go through K-means
+    custering to get improved clustering.
 
 #### Explore the data for correlated interests
 
@@ -816,18 +816,6 @@ if the same points appear after profiling the clusters
 
 #### PCA
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-37-1.png" style="display: block; margin: auto;" />
-
-``` r
-fviz_eig(pca_sm)
-```
-
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-38-1.png" style="display: block; margin: auto;" />
-
-``` r
-get_eigenvalue(pca_sm)
-```
-
     ##        eigenvalue variance.percent cumulative.variance.percent
     ## Dim.1   4.3602296       14.0652569                    14.06526
     ## Dim.2   2.8022958        9.0396639                    23.10492
@@ -861,14 +849,24 @@ get_eigenvalue(pca_sm)
     ## Dim.30  0.1923700        0.6205484                    99.42511
     ## Dim.31  0.1782155        0.5748888                   100.00000
 
--   Since none of the Eigen Values are not greater than on one and PCA
-    is not giving us any strong conclusion lets go and look at K - Means
+``` r
+fviz_eig(pca_sm)
+```
+
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-38-1.png" style="display: block; margin: auto;" />
+
+-   Since we can clearly see from the above graph and the summary table
+    for after 10 components the eigen value drops below 1 , hence
+    according to Kaiser Rule we will consider 10 dimensions for PCA.
+
+-   Now we take that data from the PCA with 10 dimensions we will look
+    at K-Means Clustering
 
 #### Normalize the data and perform k - means clustering
 
-    ##  [1] 201637.00 179738.76 165389.79 153600.64 142782.02 132750.03 125780.20
-    ##  [8] 119096.98 113923.47 109291.40 106043.54 102827.33 100598.08  98536.47
-    ## [15]  96799.51
+    ##  [1] 170791.17 148900.88 134564.49 122782.20 111990.18 101963.05  95104.83
+    ##  [8]  88431.81  83294.97  79119.22  75889.24  72830.26  70609.42  68552.11
+    ## [15]  67083.79
 
 <img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-41-1.png" style="display: block; margin: auto;" />
 
@@ -888,25 +886,29 @@ between clusters.Let’s identify the characteristics of the clusters.
 -   There are multiple interesting profiles that came out of the
     clusters  
 
--   Cluster 1 - People who are grouped under cluster 1 tweet a lot about
-    photo *politics, travel and news*
-
--   Cluster 2 - This Segment is full of people who are more focused on
+-   Cluster 1 - This Segment is full of people who are more focused on
     their diet/ are a more fitness oriented people as they tweet a lot
-    about *health nutrition, Personal_fintess, cooking*
+    about *health nutrition, Personal_fitness, cooking*
 
--   Cluster 3 - In this cluster people tweet about *Sports_fandom,
-    religion, food*
+-   Cluster 2 - This Cluster of people talk about *photo_sharing,
+    shopping and travel* which indicates that they are more into
+    travel/exploring
 
--   Cluster 4 - People in this segment are into social media, as they
-    talk about *Photo sharing, cooking and Fashion the most*
+-   Cluster 3 - People in this segment are into *Photo sharing, cooking
+    and Fashion the most*, this cannot give us any string conclusion,
+    but we can assume that these people are into social media stuff
+    where they talk about sharing things
 
--   Cluster 5 - In this segment tweets are more about *photo_sharing,
-    current_events, Shopping* they are mostly segmented into the group
-    of people who like to explore/party
+-   Cluster 4 - This cluster is full of university students as they talk
+    about *college_uni, online_gaming,photo_sharing*
 
--   Cluster 6 - This segment is profoundly university students as they
-    tweet about *universities,online games and photo sharing*
+-   Cluster 5 - In this segment tweets are more about *sports_fandom,
+    religion, food * again no concrete conlusion from this set of people
+    but we can assume these are a group of people in a set who are a all
+    of one religion and stay together
+
+-   Cluster 6 - This segment is profoundly middle aged people as they
+    talk more about *politics, travel, news*
 
 ## Reuturs Corpus
 
@@ -1188,76 +1190,105 @@ The summary of the dataset reveals the following:
 
 3.  More than half of the transactions have 4 or lesser items per basket
 
--   support \> 0.05, confidence \> 0.1 and length \<= 2 using the
-    ‘apriori’ algorithm
+4.  Considering only unique items in each basket so that we do not get
+    skewed results after applying the apriori mining algorithm
 
-There are only 6 rules generated because of the high support and low
-confidence level. We also notice that most relationships in this item
-set include whole milk, yogurt and rolls/buns which is in accordance
-with the transaction frequency plot we saw earlier. These are some of
-the most frequently bought items.
+<!-- -->
 
-    ##     lhs                   rhs                support    confidence coverage 
-    ## [1] {yogurt}           => {whole milk}       0.05602440 0.4016035  0.1395018
-    ## [2] {whole milk}       => {yogurt}           0.05602440 0.2192598  0.2555160
-    ## [3] {rolls/buns}       => {whole milk}       0.05663447 0.3079049  0.1839349
-    ## [4] {whole milk}       => {rolls/buns}       0.05663447 0.2216474  0.2555160
-    ## [5] {other vegetables} => {whole milk}       0.07483477 0.3867578  0.1934926
-    ## [6] {whole milk}       => {other vegetables} 0.07483477 0.2928770  0.2555160
-    ##     lift     count
-    ## [1] 1.571735 551  
-    ## [2] 1.571735 551  
-    ## [3] 1.205032 557  
-    ## [4] 1.205032 557  
-    ## [5] 1.513634 736  
-    ## [6] 1.513634 736
+    ## Apriori
+    ## 
+    ## Parameter specification:
+    ##  confidence minval smax arem  aval originalSupport maxtime support minlen
+    ##         0.5    0.1    1 none FALSE            TRUE       5   0.001      1
+    ##  maxlen target  ext
+    ##      10  rules TRUE
+    ## 
+    ## Algorithmic control:
+    ##  filter tree heap memopt load sort verbose
+    ##     0.1 TRUE TRUE  FALSE TRUE    2    TRUE
+    ## 
+    ## Absolute minimum support count: 9 
+    ## 
+    ## set item appearances ...[0 item(s)] done [0.00s].
+    ## set transactions ...[169 item(s), 9835 transaction(s)] done [0.00s].
+    ## sorting and recoding items ... [157 item(s)] done [0.00s].
+    ## creating transaction tree ... done [0.00s].
+    ## checking subsets of size 1 2 3 4 5 6 done [0.01s].
+    ## writing ... [5668 rule(s)] done [0.00s].
+    ## creating S4 object  ... done [0.00s].
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-66-1.png)
+    ## set of 10 rules
 
--   support \> 0.02, confidence \> 0.2 and length \<= 2
+    ## Available control parameters (with default values):
+    ## layout    =  stress
+    ## circular  =  FALSE
+    ## ggraphdots    =  NULL
+    ## edges     =  <environment>
+    ## nodes     =  <environment>
+    ## nodetext  =  <environment>
+    ## colors    =  c("#EE0000FF", "#EEEEEEFF")
+    ## engine    =  ggplot2
+    ## max   =  100
+    ## verbose   =  FALSE
 
--   This item set contains 72 rules and includes a lot more items.
-    However, whole milk still seems to be a common occurence.
-    ![](STA-Part2_files/figure-markdown_github/unnamed-chunk-68-1.png)
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-65-1.png" style="display: block; margin: auto;" />
 
--   support \> 0.0015, confidence \> 0.8 and length \<= 2
+**Conclusion**
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-70-1.png)
+A study of the associations shows us the following
 
-### Conclusion
+1.  People purchase soda, popcorn and other salty snacks together.
 
-From the association rules, some of the conclusions that can be drawn
-are:
+2.  Cheese, ham, white bread and eggs usually sell together.
 
-1.  People are more likely to buy bottled beer if they purchased red
-    wine or liquor
+3.  Sugar, baking powder and flour sell together, these are usually
+    baking items.
 
-2.  People are more likely to buy vegetables when they buy
-    vegetable/fruit juice
+4.  Cheese, curd, whipped cream and yogurt sell together!
 
-3.  Whole milk is the most common item purchased by customers
+## References
 
-<!-- <!-- ### Approach 2 -->
-<!-- # ```{r,warning=FALSE,fig.align='center',echo=FALSE,include=FALSE, eval=FALSE} -->
-<!-- # # consider only unique items in each basket -->
-<!-- # item_list <- lapply(item_list, unique) -->
-<!-- #  -->
-<!-- # # convert to the transactions type -->
-<!-- # item_transactions <- as(item_list, "transactions") -->
-<!-- #  -->
-<!-- # # apply the apriori -->
-<!-- # groceryrules <- apriori(item_transactions, -->
-<!-- #                         parameter=list(support = .001, -->
-<!-- #                                        confidence = .5)) -->
-<!-- # head(groceryrules, n = 10, by ="lift") -->
-<!-- #  -->
-<!-- # plot(head(groceryrules, n = 10, by ="lift"), method = "graph",  -->
-<!-- #      main = "Top 10 Association Rules") -->
-<!-- # ``` -->
-<!-- <!-- **Conclusion** -->
-<!-- <!-- A study of the associations shows us the following  -->
-<!-- <!-- 1. People purchase soda, popcorn and other salty snacks together. -->
-<!-- <!-- 2. Cheese, ham, white bread and eggs usually sell together. -->
-<!-- <!-- 3. Sugar, baking powder and flour sell together, these are usually -->
-<!-- <!-- baking items. -->
-<!-- <!-- 4. Cheese, curd, whipped cream and yogurt sell together! -->
+1.  We have referred Stack overflow for the issues/errors/syntax while
+    coding - <https://stackoverflow.com/>
+
+2.  Professor James Scott class slides -
+    <https://github.com/Vishu611/STA380-Part2-JamesProffclass/tree/master/slides>
+
+3.  R site official documentation -
+    <https://www.r-project.org/other-docs.html>
+
+<!-- <!-- <!-- ### Approach 2 -->
+<!-- * support > 0.05, confidence > 0.1 and length <= 2 using the 'apriori' algorithm -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_1 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.05, confidence=.1, minlen=2)) -->
+<!-- ``` -->
+<!-- There are only 6 rules generated because of the high support and low confidence level. We also notice that most relationships in this item set include whole milk, yogurt and rolls/buns which is in accordance with the transaction frequency plot we saw earlier. These are some of the most frequently bought items. -->
+<!-- ```{r echo=FALSE} -->
+<!-- arules::inspect(grocrules_1) -->
+<!-- plot(grocrules_1, method='graph') -->
+<!-- ``` -->
+<!-- * support > 0.02, confidence > 0.2 and length <= 2 -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_2 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.02, confidence=.2, minlen=2)) -->
+<!-- arules::inspect(grocrules_2) -->
+<!-- ``` -->
+<!-- * This item set contains 72 rules and includes a lot more items. However, whole milk still seems to be a common occurence. -->
+<!-- ```{r echo=FALSE} -->
+<!-- plot(head(grocrules_2,15,by='lift'), method='graph') -->
+<!-- ``` -->
+<!-- * support > 0.0015, confidence > 0.8 and length <= 2 -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_3 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.0015, confidence=0.8, minlen=2)) -->
+<!-- arules::inspect(grocrules_3) -->
+<!-- ``` -->
+<!-- ```{r echo=FALSE} -->
+<!-- plot(head(grocrules_3, 5, by='lift'), method='graph') -->
+<!-- ``` -->
+<!-- ### Conclusion -->
+<!-- From the association rules, some of the conclusions that can be drawn are: -->
+<!-- 1. People are more likely to buy bottled beer if they purchased red wine or liquor -->
+<!-- 2. People are more likely to buy vegetables when they buy vegetable/fruit juice -->
+<!-- 3. Whole milk is the most common item purchased by customers -->

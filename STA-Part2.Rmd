@@ -1216,17 +1216,17 @@ ggplot(social_clust1_main, aes(x =reorder(type, -Cluster_6) , y=Cluster_6)) + co
 **Results**
 
 * There are multiple interesting profiles that came out of the clusters       
-* Cluster 1 - People who are grouped under cluster 1 tweet a lot about photo *politics, travel and news*
+* Cluster 1 - This Segment is full of people who are more focused on their diet/ are a more fitness oriented people as they tweet a lot about  *health nutrition, Personal_fitness, cooking*
 
-* Cluster 2 - This Segment is full of people who are more focused on their diet/ are a more fitness oriented people as they tweet a lot about *health nutrition, Personal_fitness, cooking*
+* Cluster 2 - This Cluster of people talk about  *photo_sharing, shopping and travel* which indicates that they are more into travel/exploring
 
-* Cluster 3 - In this cluster people tweet about *Sports_fandom, religion, food*
+* Cluster 3 - People in this segment are into  *Photo sharing, cooking and Fashion the most*, this cannot give us any string conclusion, but we can assume that these people are into social media stuff where they talk about sharing things 
 
-* Cluster 4 - People in this segment are into social media, as they talk about *Photo sharing, cooking and Fashion the most*
+* Cluster 4 -  This cluster is full of university students as they talk about *college_uni, online_gaming,photo_sharing*
 
-* Cluster 5 - In this segment tweets are more about *photo_sharing, current_events, Shopping* they are mostly segmented into the group of people who like to explore/party 
+* Cluster 5 - In this segment tweets are more about *sports_fandom, religion, food * again no concrete conlusion from this set of people but we can assume these are a group of people in a set who are a all of one religion and stay together
 
-* Cluster 6 - This segment is profoundly university students as they tweet about *universities,online games and photo sharing*
+* Cluster 6 - This segment is profoundly middle aged people as they talk more about  *politics, travel, news*
 
 \newpage
 
@@ -1742,60 +1742,38 @@ The summary of the dataset reveals the following:
 
 3. More than half of the transactions have 4 or lesser items per basket
 
-* support > 0.05, confidence > 0.1 and length <= 2 using the 'apriori' algorithm
+4. Considering  only unique items in each basket so that we do not get skewed results after applying the apriori mining algorithm
 
+```{r,warning=FALSE,fig.align='center',echo=FALSE}
 
-```{r echo=FALSE, include=FALSE}
-grocrules_1 = apriori(item_transactions, 
-                     parameter=list(support=0.05, confidence=.1, minlen=2))
+item_list <- lapply(item_list, unique)
+
+ # convert to the transactions type
+item_transactions <- as(item_list, "transactions")
+
+ # apply the apriori
+groceryrules <- apriori(item_transactions,
+                         parameter=list(support = .001,
+                                        confidence = .5))
+
+head(groceryrules, n = 10, by ="lift")
+
+plot(head(groceryrules, n = 10, by ="lift"), method = "graph",
+      main = "Top 10 Association Rules")
 ```
 
-There are only 6 rules generated because of the high support and low confidence level. We also notice that most relationships in this item set include whole milk, yogurt and rolls/buns which is in accordance with the transaction frequency plot we saw earlier. These are some of the most frequently bought items.
+ **Conclusion**
 
-```{r echo=FALSE}
-arules::inspect(grocrules_1)
-plot(grocrules_1, method='graph')
-```
+A study of the associations shows us the following
 
-* support > 0.02, confidence > 0.2 and length <= 2
+1. People purchase soda, popcorn and other salty snacks together.
 
+2. Cheese, ham, white bread and eggs usually sell together.
 
+3. Sugar, baking powder and flour sell together, these are usually
+ baking items.
 
-```{r echo=FALSE, include=FALSE}
-grocrules_2 = apriori(item_transactions, 
-                     parameter=list(support=0.02, confidence=.2, minlen=2))
-arules::inspect(grocrules_2)
-```
-* This item set contains 72 rules and includes a lot more items. However, whole milk still seems to be a common occurence.
-```{r echo=FALSE}
-plot(head(grocrules_2,15,by='lift'), method='graph')
-```
-
-
-* support > 0.0015, confidence > 0.8 and length <= 2
-
-
-```{r echo=FALSE, include=FALSE}
-grocrules_3 = apriori(item_transactions, 
-                     parameter=list(support=0.0015, confidence=0.8, minlen=2))
-arules::inspect(grocrules_3)
-```
-
-```{r echo=FALSE}
-plot(head(grocrules_3, 5, by='lift'), method='graph')
-
-```
-
-
-### Conclusion
-
-From the association rules, some of the conclusions that can be drawn are:
-
-1. People are more likely to buy bottled beer if they purchased red wine or liquor
-
-2. People are more likely to buy vegetables when they buy vegetable/fruit juice
-
-3. Whole milk is the most common item purchased by customers
+4. Cheese, curd, whipped cream and yogurt sell together!
 
 
 ## References
@@ -1807,34 +1785,38 @@ From the association rules, some of the conclusions that can be drawn are:
 3. R site official documentation - https://www.r-project.org/other-docs.html
 
 
-<!-- <!-- ### Approach 2 --> 
-<!-- # ```{r,warning=FALSE,fig.align='center',echo=FALSE,include=FALSE, eval=FALSE} -->
-<!-- # # consider only unique items in each basket -->
-<!-- # item_list <- lapply(item_list, unique) -->
-<!-- #  -->
-<!-- # # convert to the transactions type -->
-<!-- # item_transactions <- as(item_list, "transactions") -->
-<!-- #  -->
-<!-- # # apply the apriori -->
-<!-- # groceryrules <- apriori(item_transactions, -->
-<!-- #                         parameter=list(support = .001, -->
-<!-- #                                        confidence = .5)) -->
-<!-- # head(groceryrules, n = 10, by ="lift") -->
-<!-- #  -->
-<!-- # plot(head(groceryrules, n = 10, by ="lift"), method = "graph",  -->
-<!-- #      main = "Top 10 Association Rules") -->
-<!-- # ``` -->
-
-<!-- <!-- **Conclusion** --> 
-
-<!-- <!-- A study of the associations shows us the following  --> 
-
-<!-- <!-- 1. People purchase soda, popcorn and other salty snacks together. --> 
-
-<!-- <!-- 2. Cheese, ham, white bread and eggs usually sell together. -->
-
-<!-- <!-- 3. Sugar, baking powder and flour sell together, these are usually -->
-<!-- <!-- baking items. -->
-
-<!-- <!-- 4. Cheese, curd, whipped cream and yogurt sell together! -->
-
+<!-- <!-- <!-- ### Approach 2 -->  
+<!-- * support > 0.05, confidence > 0.1 and length <= 2 using the 'apriori' algorithm -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_1 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.05, confidence=.1, minlen=2)) -->
+<!-- ``` -->
+<!-- There are only 6 rules generated because of the high support and low confidence level. We also notice that most relationships in this item set include whole milk, yogurt and rolls/buns which is in accordance with the transaction frequency plot we saw earlier. These are some of the most frequently bought items. -->
+<!-- ```{r echo=FALSE} -->
+<!-- arules::inspect(grocrules_1) -->
+<!-- plot(grocrules_1, method='graph') -->
+<!-- ``` -->
+<!-- * support > 0.02, confidence > 0.2 and length <= 2 -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_2 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.02, confidence=.2, minlen=2)) -->
+<!-- arules::inspect(grocrules_2) -->
+<!-- ``` -->
+<!-- * This item set contains 72 rules and includes a lot more items. However, whole milk still seems to be a common occurence. -->
+<!-- ```{r echo=FALSE} -->
+<!-- plot(head(grocrules_2,15,by='lift'), method='graph') -->
+<!-- ``` -->
+<!-- * support > 0.0015, confidence > 0.8 and length <= 2 -->
+<!-- ```{r echo=FALSE, include=FALSE} -->
+<!-- grocrules_3 = apriori(item_transactions,  -->
+<!--                      parameter=list(support=0.0015, confidence=0.8, minlen=2)) -->
+<!-- arules::inspect(grocrules_3) -->
+<!-- ``` -->
+<!-- ```{r echo=FALSE} -->
+<!-- plot(head(grocrules_3, 5, by='lift'), method='graph') -->
+<!-- ``` -->
+<!-- ### Conclusion -->
+<!-- From the association rules, some of the conclusions that can be drawn are: -->
+<!-- 1. People are more likely to buy bottled beer if they purchased red wine or liquor -->
+<!-- 2. People are more likely to buy vegetables when they buy vegetable/fruit juice -->
+<!-- 3. Whole milk is the most common item purchased by customers -->
