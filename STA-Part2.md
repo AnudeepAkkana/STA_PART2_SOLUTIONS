@@ -504,7 +504,7 @@ equally amongst the five ETFs.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5326.0035985
+-5321.2987115
 
 ### Strategy two - Safer than even split
 
@@ -516,7 +516,7 @@ stats.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3865.0134524
+-3886.6932415
 
 ### Strategy three - Aggressive strategy
 
@@ -538,171 +538,19 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5326.0035985. We would end up with around USD 1.0048373^{5} on
-average with a possibility to even reach USD 1.1684729^{5}*
+of $-5321.2987115. We would end up with around USD 1.0045993^{5} on
+average with a possibility to even reach USD 1.1384219^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3865.0134524. The strategy to play safer shows in the results. On
-average we end up with around USD 1.0030368^{5} and the max we can
-possibly make is USD 1.1054653^{5}.*
+$-3886.6932415. The strategy to play safer shows in the results. On
+average we end up with around USD 1.0028486^{5} and the max we can
+possibly make is USD 1.1005017^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
 Although the average is still around USD 1.0061984^{5}, we can possible
 more than double our money and end up with USD 1.278865^{5} or lose a
 lot and end up with just USD 6.9156711^{4}.*
-
-### Krish Portfolio Modelling
-
-# Q1
-
-## Background
-
-### In this problem, you will construct three different portfolios of exchange-traded funds, or ETFs, and use bootstrap resampling to analyze the short-term tail risk of your portfolios. If you’re unfamiliar with exchange-traded funds, you can read a bit about them here.
-
-## The Goal
-
-### Suppose you have $100,000 in capital. Your task is to:
-
--   Construct two different possibilities for an ETF-based portfolio,
-    each involving an allocation of your $100,000 in capital to
-    somewhere between 3 and 10 different ETFs. You can find a big
-    database of ETFs here.
-
--   Download the last five years of daily data on your chosen ETFs,
-    using the functions in the quantmod package, as we used in class.
-    Note: make sure to choose ETFs for which at least five years of data
-    are available. There are tons of ETFs and some are quite new!
-
--   Use bootstrap resampling to estimate the 4-week (20 trading day)
-    value at risk of each of your three portfolios at the 5% level.
-
--   Write a report summarizing your portfolios and your VaR findings.
-
-### You should assume that your portfolios are rebalanced each day at zero transaction cost. For example, if you’re allocating your wealth evenly among 5 ETFs, you always redistribute your wealth at the end of each day so that the equal five-way split is retained, regardless of that day’s appreciation/depreciation.
-
-## Notes
-
--   Make sure the portfolios are different from each other! (Maybe one
-    seems safe, another aggressive, or something like that.) You’re not
-    being graded on what specific portfolios you choose… just provide
-    some context for your choices.
-
--   If you’re unfamiliar with value at risk (VaR), you can refer to any
-    basic explanation of the idea, e.g. here, here, or here.
-
--   For the first portfolio, I picked 5 random stocks from the database
-    of ETFs, thus giving me a diverse portfolio with many elements. I
-    made sure for every stock I picked that there were at least 5 years
-    of data.
-
-<!-- -->
-
-    ##                ClCl.IWRa     ClCl.VNQa     ClCl.SPYa    ClCl.USOa   ClCl.GOVTa
-    ## 2016-08-03            NA            NA            NA           NA           NA
-    ## 2016-08-04  0.0004615438 -0.0040821051  0.0010639791  0.015479928  0.001909855
-    ## 2016-08-05  0.0075538923  0.0006647281  0.0081788687  0.002032469 -0.004574876
-    ## 2016-08-08 -0.0002861787  0.0017712388 -0.0005957925  0.024340848  0.000000000
-    ## 2016-08-09 -0.0009158920  0.0054150184  0.0005961477 -0.002970359  0.002680927
-    ## 2016-08-10 -0.0025212239 -0.0010992086 -0.0024749932 -0.029791386  0.001909855
-
-    ##                ClCl.IWRa     ClCl.VNQa     ClCl.SPYa    ClCl.USOa   ClCl.GOVTa
-    ## 2016-08-04  0.0004615438 -0.0040821051  0.0010639791  0.015479928  0.001909855
-    ## 2016-08-05  0.0075538923  0.0006647281  0.0081788687  0.002032469 -0.004574876
-    ## 2016-08-08 -0.0002861787  0.0017712388 -0.0005957925  0.024340848  0.000000000
-    ## 2016-08-09 -0.0009158920  0.0054150184  0.0005961477 -0.002970359  0.002680927
-    ## 2016-08-10 -0.0025212239 -0.0010992086 -0.0024749932 -0.029791386  0.001909855
-    ## 2016-08-11  0.0053998392 -0.0113336161  0.0046406681  0.045035770 -0.003431224
-
--   Understanding the return behavior of the stocks
-
-<!-- -->
-
-    ##      Index              ClCl.IWRa         
-    ##  Min.   :2016-08-03   Min.   :-0.1379755  
-    ##  1st Qu.:2018-02-05   1st Qu.:-0.0041810  
-    ##  Median :2019-08-08   Median : 0.0009807  
-    ##  Mean   :2019-08-08   Mean   : 0.0024485  
-    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0064269  
-    ##  Max.   :2022-08-12   Max.   : 2.9363938  
-    ##                       NA's   :1
-
-    ##      Index              ClCl.VNQa         
-    ##  Min.   :2016-08-03   Min.   :-0.1772773  
-    ##  1st Qu.:2018-02-05   1st Qu.:-0.0052662  
-    ##  Median :2019-08-08   Median : 0.0009221  
-    ##  Mean   :2019-08-08   Mean   : 0.0003271  
-    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0067669  
-    ##  Max.   :2022-08-12   Max.   : 0.0899666  
-    ##                       NA's   :1
-
-    ##      Index              ClCl.SPYa         
-    ##  Min.   :2016-08-03   Min.   :-0.1094237  
-    ##  1st Qu.:2018-02-05   1st Qu.:-0.0033009  
-    ##  Median :2019-08-08   Median : 0.0007051  
-    ##  Mean   :2019-08-08   Mean   : 0.0005914  
-    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0059158  
-    ##  Max.   :2022-08-12   Max.   : 0.0906033  
-    ##                       NA's   :1
-
-    ##      Index              ClCl.USOa         
-    ##  Min.   :2016-08-03   Min.   :-0.8679578  
-    ##  1st Qu.:2018-02-05   1st Qu.:-0.0106857  
-    ##  Median :2019-08-08   Median : 0.0017182  
-    ##  Mean   :2019-08-08   Mean   :-0.0002811  
-    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0128586  
-    ##  Max.   :2022-08-12   Max.   : 0.1666667  
-    ##                       NA's   :1
-
-    ##      Index              ClCl.GOVTa        
-    ##  Min.   :2016-08-03   Min.   :-0.0222462  
-    ##  1st Qu.:2018-02-05   1st Qu.:-0.0015854  
-    ##  Median :2019-08-08   Median : 0.0000000  
-    ##  Mean   :2019-08-08   Mean   : 0.0000121  
-    ##  3rd Qu.:2021-02-09   3rd Qu.: 0.0016083  
-    ##  Max.   :2022-08-12   Max.   : 0.0225758  
-    ##                       NA's   :1
-
-**Findings**
-
--   The returns obtained for the ETFs are in the following ranges:- IWR
-    = -13% to 293%, VNQ = -17% to 9%, SPY = -10% to 9%, USO = -86% to
-    16%, GOVT = -2% to 2%
-
--   Based on the summary statistics of the ETFs, we can infer that VNQ,
-    SPY and GOVT are in the safe category as their returns are in a
-    reasonable range.
-
--   Split considered for Safe portfolio is VNQ:30%, SPY:35%, GOVT:35%
-
--   We can infer that USO and IWR are high risk/return ETFs since they
-    have an extremely wide return range.
-
--   Split considered for aggressive portfolio is IWR:50% and USO:50%
-
--   Now simulate many different possible scenarios
-
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-34-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-34-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-34-3.png" style="display: block; margin: auto;" />
-
-    ## [1] "Value at risk for even split :  7970.7"
-
-    ## [1] "Value at risk for safe portfolio :  5104.88"
-
-    ## [1] "Value at risk for aggressive portfolio :  13152.63"
-
-**Findings**
-
--   On seeing the above histogram graphs we can see that for the evenly
-    distributed portfolios the spread is quite uneven, for the safe
-    portfolio we observe a relatively even curve and for the aggressive
-    portfolio the variance is widespread.
-
--   The value at risk for the safe portfolio is 5175.9 which is the
-    least risky portfolio as the name suggests, for the aggressive
-    portfolio is 13549.54 and the safe portfolio is more or less the
-    average of the safe and aggressive portfolios.
-
-### Ends Here Krish Portfolio Modelling
 
 ## Clustering and PCA
 
@@ -808,7 +656,7 @@ lot and end up with just USD 6.9156711^{4}.*
     ## sulphates            -0.294  0.192 -0.070
     ## alcohol              -0.106 -0.465 -0.261
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-39-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-30-1.png" style="display: block; margin: auto;" />
 
     ##        cluster
     ## color    red white
@@ -838,15 +686,15 @@ lot and end up with just USD 6.9156711^{4}.*
 
     ##             kmeans_cluster_2$cluster
     ## wine$quality   1   2   3   4   5   6   7
-    ##            3   7   5   1   4   7   4   2
-    ##            4  61  64   2  21  24  15  29
-    ##            5 470 414  20  80 656 200 298
-    ##            6 347 538   9 528 645 266 503
-    ##            7  42 144   1 451 122 140 179
-    ##            8   2  30   0  96  21  14  30
-    ##            9   0   0   0   4   1   0   0
+    ##            3   7   4   4   1   2   5   7
+    ##            4  63  21  15   2  27  64  24
+    ##            5 471  77 200  20 269 446 655
+    ##            6 350 548 265   9 475 549 640
+    ##            7  43 446 141   1 189 137 122
+    ##            8   2  97  14   0  31  27  22
+    ##            9   0   4   0   0   0   1   0
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-40-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-31-1.png" style="display: block; margin: auto;" />
 
 -   The confusion matrix shows that k-means clustering was unable to
     distinguish between different qualities of wine. For example, each
@@ -931,7 +779,7 @@ identify the profiles of those segments
 -   We have about 7882 users with 36 areas of interest and one column
     for uncategorised.
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-42-2.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-33-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-33-2.png" style="display: block; margin: auto;" />
 **Findings:**
 
 1.  The most tweets fall into the chatter category which doesn’t tell us
@@ -954,7 +802,7 @@ cormat <- cor(analysis[c(2:33)])
 ggcorrplot(cormat,hc.order = TRUE,lab = TRUE)
 ```
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-43-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-34-1.png" style="display: block; margin: auto;" />
 
 -   Shopping and photo-sharing are positively correlated  
 -   College_uni and online_gaming stands out with a strong positive
@@ -968,13 +816,13 @@ if the same points appear after profiling the clusters
 
 #### PCA
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-46-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-37-1.png" style="display: block; margin: auto;" />
 
 ``` r
 fviz_eig(pca_sm)
 ```
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-47-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-38-1.png" style="display: block; margin: auto;" />
 
 ``` r
 get_eigenvalue(pca_sm)
@@ -1022,18 +870,18 @@ get_eigenvalue(pca_sm)
     ##  [8] 119096.98 113923.47 109291.40 106043.54 102827.33 100598.08  98536.47
     ## [15]  96799.51
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-50-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-41-1.png" style="display: block; margin: auto;" />
 
 -   We can see that there is a clear bend at 6 on the graph for elbow,
     so lets go with 6 clusters for K means
 
 **Cluster visualization**
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-52-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-43-1.png" style="display: block; margin: auto;" />
 The clusters look separated, as well as we can see many common points
 between clusters.Let’s identify the characteristics of the clusters.
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-54-6.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-2.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-3.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-4.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-5.png" style="display: block; margin: auto;" /><img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-45-6.png" style="display: block; margin: auto;" />
 
 **Results**
 
@@ -1111,7 +959,7 @@ on test data as well.
 There are numerous features to choose from. Let’s utilize PCA to extract
 the most significant variables from the 782 unique phrases stated above!
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-59-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-50-1.png" style="display: block; margin: auto;" />
 
 According to an overview of the variance described, 350 or so primary
 components account for roughly 50% of the total variance.
@@ -1157,7 +1005,7 @@ for (i in 1:15){
 plot(c(1:15), accuracies, main = "KNN accuracy vs K", xlab = "K-Values", ylab = "Accuracy Score", lty = 1)
 ```
 
-<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-62-1.png" style="display: block; margin: auto;" />
+<img src="STA-Part2_files/figure-markdown_github/unnamed-chunk-53-1.png" style="display: block; margin: auto;" />
 
 The plot shows that using 4 nearest neighbors, we get an overall
 accuracy of \~35%.
@@ -1327,7 +1175,7 @@ there in the training data
     ##  Class :character  
     ##  Mode  :character
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-73-1.png)![](STA-Part2_files/figure-markdown_github/unnamed-chunk-73-2.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-64-1.png)![](STA-Part2_files/figure-markdown_github/unnamed-chunk-64-2.png)
 We transform the data into a “transactions” class before applying the
 apriori algorithm in association rule mining.
 
@@ -1364,17 +1212,17 @@ the most frequently bought items.
     ## [5] 1.513634 736  
     ## [6] 1.513634 736
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-75-1.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-66-1.png)
 
 -   support \> 0.02, confidence \> 0.2 and length \<= 2
 
 -   This item set contains 72 rules and includes a lot more items.
     However, whole milk still seems to be a common occurence.
-    ![](STA-Part2_files/figure-markdown_github/unnamed-chunk-77-1.png)
+    ![](STA-Part2_files/figure-markdown_github/unnamed-chunk-68-1.png)
 
 -   support \> 0.0015, confidence \> 0.8 and length \<= 2
 
-![](STA-Part2_files/figure-markdown_github/unnamed-chunk-79-1.png)
+![](STA-Part2_files/figure-markdown_github/unnamed-chunk-70-1.png)
 
 ### Conclusion
 
