@@ -504,7 +504,7 @@ equally amongst the five ETFs.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives indicate losses and
 positive means profits. The value at risk at the 5% level is $
--5321.2987115
+-5222.9838236
 
 ### Strategy two - Safer than even split
 
@@ -516,7 +516,7 @@ stats.
 The above histogram shows the difference between final amount at the end
 of 20 days and the initial wealth invested. Negtives mean losses and
 positive means profits. The value at risk at the 5% level is $
--3886.6932415
+-3850.4390774
 
 ### Strategy three - Aggressive strategy
 
@@ -538,13 +538,13 @@ Looking at the bootstrap resamples and the related value at risk at 5%,
 we see that -
 
 *1. Strategy one - Even split of my assets - has a value at risk at 5%
-of $-5321.2987115. We would end up with around USD 1.0045993^{5} on
-average with a possibility to even reach USD 1.1384219^{5}*
+of $-5222.9838236. We would end up with around USD 1.0049305^{5} on
+average with a possibility to even reach USD 1.1525874^{5}*
 
 *2. Strategy two - Safer than even split - has a value at risk at 5% of
-$-3886.6932415. The strategy to play safer shows in the results. On
-average we end up with around USD 1.0028486^{5} and the max we can
-possibly make is USD 1.1005017^{5}.*
+$-3850.4390774. The strategy to play safer shows in the results. On
+average we end up with around USD 1.002726^{5} and the max we can
+possibly make is USD 1.1003971^{5}.*
 
 *3. Strategy three - Aggressive strategy- has a value at risk at 5% of
 $-8471.6277494. There is a super high risk with this investment.
