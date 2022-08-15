@@ -1,5 +1,5 @@
 <!-- Actual text starts here -->
-Link to RMD file: https://github.com/AnudeepAkkana/STA_PART2_SOLUTIONS
+Link to RMD file: https://github.com/AnudeepAkkana/STA_PART2_SOLUTIONS/blob/main/STA-Part2.Rmd
 
 Group Members
 
